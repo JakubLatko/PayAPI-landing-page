@@ -1,0 +1,159 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../public/assets/shared/desktop/logo.svg";
+import burger from "../../public/assets/shared/mobile/menu.svg";
+import Button from "./Button.astro";
+import Close from "../../public/assets/shared/mobile/close.svg";
+---
+
+<header>
+	<a href="/" class="logoLink">
+		<Image src={logo} alt={"PayAPI logo"} />
+	</a>
+	<button class="burger">
+		<Image src={burger} alt={"Open the navigation menu"} />
+	</button>
+	<nav>
+		<button class="close">
+			<Image src={Close} alt="Close menu" />
+		</button>
+		<ul>
+			<li><a href="/pricing">Pricing</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/contact">Contact</a></li>
+		</ul>
+		<a href="contact" class="CTA">
+			<Button variant="primary mobile-menu">Schedule a Demo</Button>
+		</a>
+	</nav>
+</header>
+
+<style lang="scss">
+	header {
+		padding: 2.5rem 1.5rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	nav {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 20%;
+		bottom: 0;
+		background-color: var(--primary-300);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-image: url(../../public/assets/shared/desktop/bg-pattern-circle.svg);
+		background-size: 200%;
+		background-repeat: no-repeat;
+		background-position: 70% -250%;
+		//transform: translateX(100%);
+		//transition: cubic-bezier(0.075, 0.82, 0.165, 1) 100ms;
+		//animation: slideOut linear 500ms;
+	}
+	.logoLink {
+		width: 20%;
+		img {
+			object-fit: contain;
+		}
+	}
+
+	.burger {
+		background-color: transparent;
+		border: 0;
+	}
+	ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+		margin: 0;
+		margin-top: 2.5rem;
+		padding-inline: 1.5rem;
+		width: 100%;
+		gap: 2rem;
+
+		li {
+			a {
+				font-size: clamp(1rem, 5.5vw, 2rem);
+				color: var(--primary-50);
+				opacity: 0.7;
+				text-decoration: none;
+				font-family: var(--ff-body);
+			}
+		}
+	}
+	.hidden {
+		display: none;
+	}
+	.close {
+		border: 0;
+		padding-block: 1rem;
+
+		margin-top: 1.5rem;
+		// //padding-inline: 0;
+		// padding-inline: 1.5rem;
+		margin-right: 1.5rem;
+		width: calc(100% - 3rem);
+		background-color: transparent;
+		margin-left: auto;
+		border-bottom: 1px solid rgba(#fbfcfe, 0.15);
+
+		img {
+			margin-left: auto;
+		}
+	}
+
+	.CTA {
+		margin-top: 2rem;
+		width: 100%;
+		padding-inline: 1.5rem;
+	}
+
+	@keyframes slideOut {
+		from {
+			transform: translateX(0%);
+		}
+
+		to {
+			transform: translateX(100%);
+			display: none;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		nav {
+			position: relative;
+			inset: 0;
+			background-color: transparent;
+			flex-direction: row;
+			flex-grow: 1;
+		}
+		.burger,
+		.close {
+			display: none;
+		}
+		ul {
+			display: flex;
+			flex-direction: row;
+			margin: 0;
+			padding: 0;
+			li {
+				a {
+					color: var(--primary-100);
+					font-size: clamp(0.75rem, 2vw, 1.5rem);
+				}
+			}
+		}
+		.CTA {
+			width: 40%;
+			min-width: 20%;
+			padding: 0;
+			margin: 0;
+		}
+	}
+</style>
