@@ -16,10 +16,11 @@ const { variant } = Astro.props;
 		font-family: var(--ff-body);
 		border-radius: 100vw;
 		border: 0;
+		transition: background-color 1000ms ease-in-out;
 		&:hover,
 		&:focus {
-			transition: 250ms ease-in-out;
 			cursor: pointer;
+			transition: background-color 250ms ease-in-out;
 		}
 		&:disabled {
 			opacity: 0.8;
@@ -65,9 +66,26 @@ const { variant } = Astro.props;
 	button.mobile-menu {
 		width: 100%;
 	}
+
 	@media only screen and (min-width: 768px) {
 		button.mobile-menu {
 			width: fit-content;
+			//min-width: 15rem;
+		}
+		button {
+			font-size: clamp(0.5rem, 2vw, 1.5rem);
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		button {
+			font-size: clamp(1rem, 1.25vw, 1.5rem);
+		}
+	}
+
+	@media only screen and (min-width: 1440px) {
+		button {
+			font-size: clamp(0.5rem, 1vw, 1.5rem);
 		}
 	}
 </style>

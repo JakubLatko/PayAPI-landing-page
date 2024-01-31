@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+import logo from "../../public/assets/shared/desktop/logo-dark.svg";
+import Facebook from "../../public/assets/shared/desktop/facebook.svg";
+import Twitter from "../../public/assets/shared/desktop/twitter.svg";
+import Linkedin from "../../public/assets/shared/desktop/linkedin.svg";
+---
+
+<section>
+	<div class="formWrapper">
+		<form action="">
+			<input type="email" name="" id="" />
+			<Button variant="primary mobile-menu">Schedule a Demo</Button>
+		</form>
+	</div>
+
+	<footer>
+		<a class="logo" href="/">
+			<Image src={logo} alt={"PayAPI's logo"} />
+		</a>
+		<nav>
+			<ul>
+				<li><a href="/pricing">Pricing</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+		</nav>
+		<div>
+			<Image src={Facebook} alt="Facebook's logo" />
+			<Image src={Twitter} alt="Twitter's logo" />
+			<Image src={Linkedin} alt="LinkedIn's logo" />
+		</div>
+	</footer>
+</section>
+
+<style lang="scss">
+	footer {
+		background-color: var(--primary-300);
+	}
+	nav {
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			a {
+				color: var(--primary-50);
+				text-decoration: none;
+				opacity: 0.7;
+			}
+		}
+	}
+	.logo {
+		opacity: 1;
+	}
+</style>
