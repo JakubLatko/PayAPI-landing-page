@@ -1,12 +1,13 @@
 ---
 interface Props {
 	variant: string;
+	buttonType: "submit" | "reset" | "button";
 }
 
-const { variant } = Astro.props;
+const { variant, buttonType } = Astro.props;
 ---
 
-<button class:list={["fw-700", variant]}>
+<button type={buttonType} class:list={["fw-700", variant]}>
 	<slot />
 </button>
 
@@ -17,6 +18,7 @@ const { variant } = Astro.props;
 		border-radius: 100vw;
 		border: 0;
 		transition: background-color 1000ms ease-in-out;
+		z-index: 100;
 		&:hover,
 		&:focus {
 			cursor: pointer;
@@ -71,6 +73,7 @@ const { variant } = Astro.props;
 		button.mobile-menu {
 			width: fit-content;
 			//min-width: 15rem;
+			//font-size: clamp(0.5rem, 2vw, 1.5rem);
 		}
 		button {
 			font-size: clamp(0.5rem, 2vw, 1.5rem);
