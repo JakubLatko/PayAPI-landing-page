@@ -1,9 +1,14 @@
 ---
 import Button from "./Button.astro";
+
+const { visible } = Astro.props;
+interface Props {
+	visible: boolean;
+}
 ---
 
 <div class="formWrapper">
-	<h2>Ready to start?</h2>
+	<h2 class:list={[{ visible }]}>Ready to start?</h2>
 	<form autocomplete="off">
 		<input
 			placeholder="Enter email address"
@@ -29,8 +34,11 @@ import Button from "./Button.astro";
 	h2 {
 		color: var(--primary-200);
 		font-size: clamp(1.5rem, 8vw, 2.5rem);
+		display: none;
 	}
-
+	.visible {
+		display: block;
+	}
 	form {
 		display: flex;
 		flex-direction: column;

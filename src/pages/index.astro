@@ -2,15 +2,21 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import NewsletterForm from "../components/NewsletterForm.astro";
-import heroImage from "../../public/assets/home/desktop/illustration-phone-mockup.svg";
+import heroImage from "../../public/assets/home/desktop/phone-illustration.png";
 import Button from "../components/Button.astro";
+import Tesla from "@assets/shared/desktop/tesla.svg";
+import Microsoft from "@assets/shared/desktop/microsoft.svg";
+import HP from "@assets/shared/desktop/hewlett-packard.svg";
+import Oracle from "@assets/shared/desktop/oracle.svg";
+import Google from "@assets/shared/desktop/google.svg";
+import nvidia from "@assets/shared/desktop/nvidia.svg";
 ---
 
 <Layout title="PayAPI - Home">
 	<section class="hero">
 		<div class="hero__content">
-			<h1>Start building with our APIs for absolutely free.</h1>\
-			<NewsletterForm />
+			<h1>Start building with our APIs for absolutely free.</h1>
+			<NewsletterForm visible={false} />
 			<div>
 				<p>Have any questions?</p>
 				<a href="/contact">Contact Us</a>
@@ -33,13 +39,13 @@ import Button from "../components/Button.astro";
 				About Us
 			</Button>
 		</div>
-		<div class="partners_imageWrapper">
-			<img src="" alt="" />
-			<img src="" alt="" />
-			<img src="" alt="" />
-			<img src="" alt="" />
-			<img src="" alt="" />
-			<img src="" alt="" />
+		<div class="partners__imageWrapper">
+			<Image src={Tesla} alt={"Tesla's logo"} />
+			<Image src={Microsoft} alt={"Microsoft's logo"} />
+			<Image src={HP} alt={"HP's logo"} />
+			<Image src={Oracle} alt={"Oracle's logo"} />
+			<Image src={Google} alt={"Google's logo"} />
+			<Image src={nvidia} alt={"nvidia's logo"} />
 		</div>
 	</section>
 	<section class="majorPerks">
@@ -113,6 +119,96 @@ import Button from "../components/Button.astro";
 </Layout>
 
 <style lang="scss">
+	body {
+		background-image: url(../../public/assets/shared/desktop/bg-pattern-circle.svg);
+		background-size: 200%;
+		background-position: center -25%;
+		background-repeat: no-repeat;
+	}
+	.hero,
+	.partners {
+		padding-inline: 1.5rem;
+	}
 	.hero {
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+		justify-content: center;
+		padding-block-end: 5rem;
+		gap: 1.5rem;
+		&__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 1.5rem;
+			text-align: center;
+			h1 {
+				font-family: var(--ff-heading);
+				color: var(--primary-200);
+				font-weight: var(--fw-400);
+				font-size: clamp(2rem, 10vw, 2.5rem);
+				letter-spacing: -1px;
+			}
+			div {
+				width: 100%;
+				margin-inline: auto;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5ch;
+				p {
+					color: var(--primary-100);
+				}
+				a {
+					color: var(--primary-100);
+					font-weight: var(--fw-700);
+					text-decoration: none;
+				}
+			}
+		}
+		&__image {
+			img {
+				width: fit-content;
+				max-width: 40vw;
+				height: fit-content;
+				object-fit: contain;
+			}
+		}
+	}
+
+	.partners {
+		background-color: var(--primary-300);
+		color: var(--accent-100);
+		display: flex;
+		flex-direction: column-reverse;
+		padding-block: 5rem;
+		gap: 3rem;
+		background-image: url(../../public/assets/shared/desktop/bg-pattern-circle.svg);
+		background-size: 200%;
+		background-position: center -150vw;
+		background-repeat: no-repeat;
+		&__text {
+			text-align: center;
+			h2 {
+				font-size: clamp(2rem, 10vw, 3rem);
+				margin-bottom: 1.5rem;
+			}
+			p {
+				font-size: clamp(0.75rem, 3.5vw, 1.5rem);
+				margin-bottom: 3rem;
+				color: var(--accent-100);
+				letter-spacing: 2px;
+				line-height: 150%;
+				font-weight: 100;
+				font-family: var(--ff-body);
+				opacity: 0.8;
+			}
+		}
+		&__imageWrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: repeat(3, 1fr);
+			gap: 3rem;
+		}
 	}
 </style>
