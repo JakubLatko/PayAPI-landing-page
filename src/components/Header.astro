@@ -94,7 +94,7 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 		border: 0;
 		padding-block: 1rem;
 
-		margin-top: 1.5rem;
+		margin-top: 2rem;
 		// //padding-inline: 0;
 		// padding-inline: 1.5rem;
 		margin-right: 1.5rem;
@@ -144,6 +144,9 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 		.close {
 			display: none;
 		}
+		.logoLink {
+			width: fit-content;
+		}
 		ul {
 			display: flex;
 			flex-direction: row;
@@ -184,13 +187,16 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 				}
 			}
 		}
+		.logoLink {
+			width: fit-content;
+			margin-right: 5rem;
+		}
 	}
 
 	@media only screen and (min-width: 1440px) {
 		header {
 			margin-inline: 10vw;
 		}
-
 		ul {
 			margin: 0;
 			li {
@@ -202,3 +208,35 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 		}
 	}
 </style>
+
+<script>
+	const burgerButton = document.querySelector(".burger");
+	const closeButton = document.querySelector(".close");
+	const navElement = document.querySelector("nav");
+
+	burgerButton?.addEventListener("click", menuFunc);
+	closeButton?.addEventListener("click", menuFunc);
+
+	let menuOpened: Boolean = false;
+	function menuFunc() {
+		menuOpened = !menuOpened;
+		if (menuOpened) {
+			navElement?.setAttribute("aria-visible", "true");
+			navElement?.classList.remove("hidden");
+		} else if (!menuOpened) {
+			navElement?.setAttribute("aria-visible", "false");
+			navElement?.classList.add("hidden");
+		}
+	}
+	window.addEventListener("resize", widthCheck);
+	window.addEventListener("load", widthCheck);
+	function widthCheck() {
+		if (window.innerWidth > 768) {
+			navElement?.setAttribute("aria-visible", "true");
+			navElement?.classList.remove("hidden");
+		} else if (window.innerWidth < 768) {
+			navElement?.setAttribute("aria-visible", "false");
+			navElement?.classList.add("hidden");
+		}
+	}
+</script>

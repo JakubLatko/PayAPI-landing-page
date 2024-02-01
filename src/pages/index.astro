@@ -1,24 +1,118 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
+import heroImage from "../../public/assets/home/desktop/illustration-phone-mockup.svg";
+import Button from "../components/Button.astro";
 ---
 
-<Layout title="Dupa">
-	Pricing About Contact Schedule a Demo Start building with our APIs for
-	absolutely free. Enter email address Schedule a Demo Have any questions?
-	Contact Us Who we work with Today, millions of people around the world have
-	successfully connected their accounts to apps they love using our API. We
-	provide developers with the tools they need to create easy and accessible
-	experiences for their users. About Us Easy to implement Our API comes with
-	just a few lines of code. You’ll be up and running in no time. We built our
-	documentation page to integrate payments functionality with ease. Simple UI
-	& UX Our pre-built form is easy to integrate in your app or website’s
-	checkout flow and designed to optimize conversion. Personal Finances
-	Consolidate financial data from multiple sources and categorize transactions
-	up to 2 years of history. Analyze reports to reconcile activities in your
-	account. Banking & Coverage With our platform, you can speed up account
-	onboarding and support ongoing payments for checking, savings, credit card,
-	and brokerage accounts. Consumer Payments It’s easier to set up secure bank
-	payments with us through a flow designed with the user experience in mind.
-	Customers could instantly authenticate their account. Ready to start? Enter
-	email address Schedule a Demo Pricing About Contact
+<Layout title="PayAPI - Home">
+	<section class="hero">
+		<div class="hero__content">
+			<h1>Start building with our APIs for absolutely free.</h1>\
+			<NewsletterForm />
+			<div>
+				<p>Have any questions?</p>
+				<a href="/contact">Contact Us</a>
+			</div>
+		</div>
+		<div class="hero__image">
+			<Image src={heroImage} alt="" />
+		</div>
+	</section>
+	<section class="partners">
+		<div class="partners__text">
+			<h2>Who we work with</h2>
+			<p>
+				Today, millions of people around the world have successfully
+				connected their accounts to apps they love using our API. We
+				provide developers with the tools they need to create easy and
+				accessible experiences for their users.
+			</p>
+			<Button variant="secondary-dark" buttonType="button">
+				About Us
+			</Button>
+		</div>
+		<div class="partners_imageWrapper">
+			<img src="" alt="" />
+			<img src="" alt="" />
+			<img src="" alt="" />
+			<img src="" alt="" />
+			<img src="" alt="" />
+			<img src="" alt="" />
+		</div>
+	</section>
+	<section class="majorPerks">
+		<div class="majorPerk">
+			<div class="majorPerk__image">
+				<img src="" alt="" />
+			</div>
+			<div class="majorPerk__text">
+				<h2>Easy to implement</h2>
+				<p>
+					Our API comes with just a few lines of code. You’ll be up
+					and running in no time. We built our documentation page to
+					integrate payments functionality with ease.
+				</p>
+			</div>
+		</div>
+		<div class="majorPerk">
+			<div class="majorPerk__image">
+				<img src="" alt="" />
+			</div>
+			<div class="majorPerk__text">
+				<h2>Simple UI & UX</h2>
+				<p>
+					Our pre-built form is easy to integrate in your app or
+					website’s checkout flow and designed to optimize conversion.
+				</p>
+			</div>
+		</div>
+	</section>
+	<section class="minorPerks">
+		<div class="minorPerk">
+			<div class="minorPerk__image">
+				<img src="" alt="" />
+			</div>
+			<div class="minorPerk__text">
+				<h2>Personal Finances</h2>
+				<p>
+					Consolidate financial data from multiple sources and
+					categorize transactions up to 2 years of history. Analyze
+					reports to reconcile activities in your account.
+				</p>
+			</div>
+		</div>
+		<div class="minorPerk">
+			<div class="minorPerk__image">
+				<img src="" alt="" />
+			</div>
+			<div class="minorPerk__text">
+				<h2>Banking & Coverage</h2>
+				<p>
+					With our platform, you can speed up account onboarding and
+					support ongoing payments for checking, savings, credit card,
+					and brokerage accounts.
+				</p>
+			</div>
+		</div>
+		<div class="minorPerk">
+			<div class="minorPerk__image">
+				<img src="" alt="" />
+			</div>
+			<div class="minorPerk__text">
+				<h2>Consumer Payments</h2>
+				<p>
+					It’s easier to set up secure bank payments with us through a
+					flow designed with the user experience in mind. Customers
+					could instantly authenticate their account.
+				</p>
+			</div>
+		</div>
+	</section>
 </Layout>
+
+<style lang="scss">
+	.hero {
+	}
+</style>

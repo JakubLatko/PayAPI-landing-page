@@ -2,24 +2,11 @@
 import { Image } from "astro:assets";
 import Button from "./Button.astro";
 import logo from "../../public/assets/shared/desktop/logo-dark.svg";
+import NewsletterForm from "./NewsletterForm.astro";
 ---
 
 <section>
-	<div class="formWrapper">
-		<h2>Ready to start?</h2>
-		<form>
-			<input
-				placeholder="Enter email address"
-				type="email"
-				name="email"
-				id="email"
-			/>
-			<Button buttonType="submit" variant="primary mobile-menu">
-				Schedule a Demo
-			</Button>
-		</form>
-	</div>
-
+	<NewsletterForm />
 	<footer>
 		<a class="logo" href="/">
 			<Image src={logo} alt={"PayAPI's logo"} />
@@ -32,9 +19,6 @@ import logo from "../../public/assets/shared/desktop/logo-dark.svg";
 			</ul>
 		</nav>
 		<div class="socialMedia">
-			<!-- <Image src={Facebook} alt="Facebook's logo" /> -->
-			<!-- <Image src={Twitter} alt="Twitter's logo" /> -->
-			<!-- <Image src={Linkedin} alt="LinkedIn's logo" /> -->
 			<a href="/"
 				><svg
 					class="socialMediaIcon"
@@ -79,36 +63,6 @@ import logo from "../../public/assets/shared/desktop/logo-dark.svg";
 		flex-direction: column;
 		gap: 5rem;
 		padding-top: 5rem;
-	}
-
-	.formWrapper {
-		margin-inline: 1.5rem;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
-
-	h2 {
-		color: var(--primary-200);
-		font-size: clamp(1.5rem, 8vw, 2.5rem);
-	}
-
-	form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
-		width: 100%;
-		input {
-			border-radius: 100vw;
-			width: 100%;
-			padding: 1rem 1.5rem;
-			border: 0;
-			box-shadow: 10px 10px 25px -10px rgba(54, 83, 107, 0.25);
-			background-color: var(--accent-100);
-			z-index: 100;
-		}
 	}
 
 	footer {
@@ -163,44 +117,6 @@ import logo from "../../public/assets/shared/desktop/logo-dark.svg";
 	}
 
 	@media only screen and (min-width: 768px) {
-		.formWrapper {
-			justify-content: center;
-			align-items: center;
-		}
-		h2 {
-			font-size: clamp(1.5rem, 6vwvw, 2.5rem);
-		}
-		form {
-			flex-direction: row;
-			margin-inline: auto;
-			width: 70%;
-			box-shadow: 10px 10px 25px -10px rgba(54, 83, 107, 0.25);
-			background-color: var(--accent-100);
-			opacity: 1;
-			border-radius: 100vw;
-			position: relative;
-			&::before {
-				content: "";
-				position: absolute;
-				display: block;
-				left: 55%;
-				top: 0%;
-				bottom: 0;
-				width: 5rem;
-				//height: 10rem;
-				z-index: 20;
-				background-color: var(--accent-100);
-			}
-			input {
-				width: fit-content;
-				flex-grow: 1;
-
-				z-index: 100;
-				box-shadow: 10px 10px 25px -10px rgba(54, 83, 107, 0.25);
-				background-color: var(--accent-100);
-			}
-		}
-
 		footer {
 			display: flex;
 			flex-direction: row;
