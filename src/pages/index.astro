@@ -4,12 +4,17 @@ import Layout from "../layouts/Layout.astro";
 import NewsletterForm from "../components/NewsletterForm.astro";
 import heroImage from "../../public/assets/home/desktop/phone-illustration.png";
 import Button from "../components/Button.astro";
-import Tesla from "@assets/shared/desktop/tesla.svg";
-import Microsoft from "@assets/shared/desktop/microsoft.svg";
-import HP from "@assets/shared/desktop/hewlett-packard.svg";
-import Oracle from "@assets/shared/desktop/oracle.svg";
-import Google from "@assets/shared/desktop/google.svg";
-import nvidia from "@assets/shared/desktop/nvidia.svg";
+import Tesla from "@assets/shared/desktop/tesla-light.svg";
+import Microsoft from "@assets/shared/desktop/microsoft-light.svg";
+import HP from "@assets/shared/desktop/hewlett-packard-light.svg";
+import Oracle from "@assets/shared/desktop/oracle-light.svg";
+import Google from "@assets/shared/desktop/google-light.svg";
+import nvidia from "@assets/shared/desktop/nvidia-light.svg";
+import majorPerk1 from "@assets/home/desktop/easy-to-implement.png";
+import majorPerk2 from "@assets/home/desktop/simple-ui.png";
+import minorPerk1 from "@assets/home/desktop/icon-personal-finances.svg";
+import minorPerk2 from "@assets/home/desktop/icon-banking-and-coverage.svg";
+import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 ---
 
 <Layout title="PayAPI - Home">
@@ -51,7 +56,12 @@ import nvidia from "@assets/shared/desktop/nvidia.svg";
 	<section class="majorPerks">
 		<div class="majorPerk">
 			<div class="majorPerk__image">
-				<img src="" alt="" />
+				<Image
+					src={majorPerk1}
+					alt={""}
+					densities={[1.5, 2]}
+					quality={"high"}
+				/>
 			</div>
 			<div class="majorPerk__text">
 				<h2>Easy to implement</h2>
@@ -64,7 +74,7 @@ import nvidia from "@assets/shared/desktop/nvidia.svg";
 		</div>
 		<div class="majorPerk">
 			<div class="majorPerk__image">
-				<img src="" alt="" />
+				<Image src={majorPerk2} alt={""} />
 			</div>
 			<div class="majorPerk__text">
 				<h2>Simple UI & UX</h2>
@@ -78,7 +88,7 @@ import nvidia from "@assets/shared/desktop/nvidia.svg";
 	<section class="minorPerks">
 		<div class="minorPerk">
 			<div class="minorPerk__image">
-				<img src="" alt="" />
+				<Image src={minorPerk1} alt={""} />
 			</div>
 			<div class="minorPerk__text">
 				<h2>Personal Finances</h2>
@@ -91,7 +101,7 @@ import nvidia from "@assets/shared/desktop/nvidia.svg";
 		</div>
 		<div class="minorPerk">
 			<div class="minorPerk__image">
-				<img src="" alt="" />
+				<Image src={minorPerk2} alt={""} />
 			</div>
 			<div class="minorPerk__text">
 				<h2>Banking & Coverage</h2>
@@ -104,7 +114,7 @@ import nvidia from "@assets/shared/desktop/nvidia.svg";
 		</div>
 		<div class="minorPerk">
 			<div class="minorPerk__image">
-				<img src="" alt="" />
+				<Image src={minorPerk3} alt={""} />
 			</div>
 			<div class="minorPerk__text">
 				<h2>Consumer Payments</h2>
@@ -120,13 +130,15 @@ import nvidia from "@assets/shared/desktop/nvidia.svg";
 
 <style lang="scss">
 	body {
-		background-image: url(../../public/assets/shared/desktop/bg-pattern-circle.svg);
+		background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
 		background-size: 200%;
 		background-position: center -25%;
 		background-repeat: no-repeat;
 	}
 	.hero,
-	.partners {
+	.partners,
+	.majorPerks,
+	.minorPerks {
 		padding-inline: 1.5rem;
 	}
 	.hero {
@@ -209,6 +221,82 @@ import nvidia from "@assets/shared/desktop/nvidia.svg";
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: repeat(3, 1fr);
 			gap: 3rem;
+			img {
+				path {
+					fill: red;
+				}
+			}
+		}
+	}
+
+	.majorPerks {
+		display: flex;
+		flex-direction: column;
+		gap: 5rem;
+		padding-block: 5rem;
+		.majorPerk {
+			&__image {
+				width: fit-content;
+				height: fit-content;
+				margin-bottom: 3rem;
+				img {
+					width: fit-content;
+					height: fit-content;
+					object-fit: contain;
+				}
+			}
+			&__text {
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				gap: 1.5rem;
+				h2 {
+					color: var(--primary-200);
+					font-size: clamp(2rem, 10vw, 2.5rem);
+				}
+				p {
+					color: var(--primary-100);
+					font-size: clamp(0.75rem, 4vw, 1.5rem);
+				}
+			}
+		}
+	}
+
+	.minorPerks {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		//padding-block: 0 5rem;
+		justify-content: center;
+		align-items: center;
+		.minorPerk {
+			&__image {
+				width: fit-content;
+				height: fit-content;
+				margin-bottom: 2.5rem;
+				margin-inline: auto;
+				img {
+					width: fit-content;
+					height: fit-content;
+					object-fit: contain;
+				}
+			}
+			&__text {
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				h2 {
+					color: var(--primary-200);
+					font-size: clamp(0.875rem, 5vw, 1.75rem);
+					font-weight: var(--fw-700);
+					font-family: var(--ff-body);
+				}
+				p {
+					color: var(--primary-100);
+					font-size: clamp(0.75rem, 4vw, 1.5rem);
+				}
+			}
 		}
 	}
 </style>
