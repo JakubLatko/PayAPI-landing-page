@@ -155,4 +155,81 @@ import Layout from "src/layouts/Layout.astro";
 			}
 		}
 	}
+
+	@media only screen and (min-width: 768px) {
+		body {
+			background-size: 80%;
+			background-position: 330% -40%;
+		}
+		main {
+			padding-inline: 2.5rem;
+		}
+		.plansWrapper {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			gap: 0.5rem;
+		}
+		h1 {
+			font-size: clamp(2.75rem, 6vw, 3.5rem);
+		}
+		ul {
+			li {
+				margin-left: 3rem;
+				font-size: clamp(0.875rem, 2vw, 1.25rem);
+				width: fit-content;
+			}
+		}
+		.text {
+			h3 {
+				font-size: clamp(1.25rem, 3vw, 1.75rem);
+			}
+			p {
+				font-size: clamp(0.875rem, 2vw, 1.25rem);
+			}
+			h2 {
+				font-size: clamp(2.75rem, 6vw, 3.5rem);
+			}
+		}
+	}
+	@media only screen and (min-width: 1440px) {
+		body {
+			background-size: 50%;
+			background-position: 120% -70%;
+		}
+		main {
+			padding-inline: 10vw;
+		}
+		.plansWrapper {
+			gap: 2rem;
+		}
+		h1 {
+			margin-inline: 0;
+			font-size: clamp(2.75rem, 4vw, 3.5rem);
+		}
+		section {
+			align-items: start;
+		}
+		.text {
+			text-align: left;
+			align-items: start;
+			h3 {
+				font-size: clamp(1.25rem, 2.25vw, 1.75rem);
+				margin: 0;
+			}
+			p {
+				font-size: clamp(0.875rem, 1.1vw, 1.25rem);
+				margin: 0;
+				text-align: left;
+			}
+			h2 {
+				font-size: clamp(2.75rem, 4vw, 3.5rem);
+			}
+		}
+		ul {
+			li {
+				font-size: clamp(0.875rem, 1.1vw, 1.25rem);
+			}
+		}
+	}
 </style>
