@@ -126,7 +126,7 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 		}
 	}
 
-	@media only screen and (min-width: 768px) {
+	@media only screen and (min-width: 767px) {
 		header {
 			display: flex;
 			align-items: center;
@@ -232,10 +232,10 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 	window.addEventListener("resize", widthCheck);
 	window.addEventListener("load", widthCheck);
 	function widthCheck() {
-		if (window.innerWidth > 768) {
+		if (window.innerWidth > 767) {
 			navElement?.setAttribute("aria-visible", "true");
 			navElement?.classList.remove("hidden");
-		} else if (window.innerWidth < 768) {
+		} else if (window.innerWidth < 767) {
 			navElement?.setAttribute("aria-visible", "false");
 			navElement?.classList.add("hidden");
 		}

@@ -40,9 +40,11 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 				provide developers with the tools they need to create easy and
 				accessible experiences for their users.
 			</p>
-			<Button variant="secondary-dark" buttonType="button">
-				About Us
-			</Button>
+			<a href="/about"
+				><Button variant="secondary-dark" buttonType="button">
+					About Us
+				</Button></a
+			>
 		</div>
 		<div class="partners__imageWrapper">
 			<Image src={Tesla} alt={"Tesla's logo"} />
@@ -91,7 +93,7 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 				<Image src={minorPerk1} alt={""} />
 			</div>
 			<div class="minorPerk__text">
-				<h2>Personal Finances</h2>
+				<h3>Personal Finances</h3>
 				<p>
 					Consolidate financial data from multiple sources and
 					categorize transactions up to 2 years of history. Analyze
@@ -104,7 +106,7 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 				<Image src={minorPerk2} alt={""} />
 			</div>
 			<div class="minorPerk__text">
-				<h2>Banking & Coverage</h2>
+				<h3>Banking & Coverage</h3>
 				<p>
 					With our platform, you can speed up account onboarding and
 					support ongoing payments for checking, savings, credit card,
@@ -117,7 +119,7 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 				<Image src={minorPerk3} alt={""} />
 			</div>
 			<div class="minorPerk__text">
-				<h2>Consumer Payments</h2>
+				<h3>Consumer Payments</h3>
 				<p>
 					It’s easier to set up secure bank payments with us through a
 					flow designed with the user experience in mind. Customers
@@ -195,7 +197,7 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 		flex-direction: column-reverse;
 		padding-block: 5rem;
 		gap: 3rem;
-		background-image: url(../../public/assets/shared/desktop/bg-pattern-circle.svg);
+		background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
 		background-size: 200%;
 		background-position: center -150vw;
 		background-repeat: no-repeat;
@@ -220,12 +222,8 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: repeat(3, 1fr);
+			place-items: center;
 			gap: 3rem;
-			img {
-				path {
-					fill: red;
-				}
-			}
 		}
 	}
 
@@ -286,7 +284,7 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 				display: flex;
 				flex-direction: column;
 				gap: 1rem;
-				h2 {
+				h3 {
 					color: var(--primary-200);
 					font-size: clamp(0.875rem, 5vw, 1.75rem);
 					font-weight: var(--fw-700);
@@ -295,6 +293,96 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 				p {
 					color: var(--primary-100);
 					font-size: clamp(0.75rem, 4vw, 1.5rem);
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: 768px) {
+		body {
+			background-size: 120%;
+			background-position: center -15%;
+		}
+		.hero,
+		.partners,
+		.majorPerks {
+			padding-inline: 10vw;
+		}
+		.minorPerks {
+			padding-inline: 2rem;
+		}
+		.hero {
+			&__content {
+				h1 {
+					max-width: 20ch;
+					margin-inline: auto;
+					font-size: clamp(2.5rem, 6vw, 3.5rem);
+				}
+				div {
+					a,
+					p {
+						font-size: clamp(0.875rem, 2vw, 1.5rem);
+					}
+				}
+			}
+			&__image {
+				img {
+					margin-inline: auto;
+					width: 25vw;
+				}
+			}
+		}
+		.partners {
+			&__imageWrapper {
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: 1fr 1fr;
+				place-items: center;
+			}
+			&__text {
+				h2 {
+					font-size: clamp(2.5rem, 6vw, 3.5rem);
+				}
+				p {
+					font-size: clamp(0.875rem, 2vw, 1.5rem);
+					max-width: 60ch;
+					margin-inline: auto;
+					line-height: 180%;
+				}
+			}
+		}
+		.majorPerks {
+			.majorPerk {
+				&__image {
+					margin-inline: auto;
+					img {
+						max-width: 50vw;
+					}
+				}
+				&__text {
+					h2 {
+						font-size: clamp(2.5rem, 6vw, 3.5rem);
+					}
+					p {
+						font-size: clamp(0.875rem, 2vw, 1.5rem);
+						max-width: 60ch;
+						margin-inline: auto;
+						line-height: 180%;
+					}
+				}
+			}
+		}
+		.minorPerks {
+			flex-direction: row;
+			.minorPerk {
+				&__text {
+					h3 {
+						font-size: clamp(1rem, 2.5vw, 1.5rem);
+					}
+					p {
+						font-size: clamp(0.875rem, 1.85vw, 1.5rem);
+						max-width: 30ch;
+						margin-inline: auto;
+						line-height: 180%;
+					}
 				}
 			}
 		}
