@@ -1,39 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+import Button from "src/components/Button.astro";
+import Layout from "src/layouts/Layout.astro";
+import Tesla from "@assets/shared/desktop/tesla.svg";
+import Microsoft from "@assets/shared/desktop/microsoft.svg";
+import HP from "@assets/shared/desktop/hewlett-packard.svg";
+import Oracle from "@assets/shared/desktop/oracle.svg";
+import Google from "@assets/shared/desktop/google.svg";
+import nvidia from "@assets/shared/desktop/nvidia.svg";
+import { Image } from "astro:assets";
+---
 
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+<Layout title="PayAPI | Contact">
+	<h1>Submit a help request and we’ll get in touch shortly.</h1>
 
-    <title>Frontend Mentor | PayAPI Website Challenge</title>
-  </head>
+	<form action="">
+		<div><label for="">Name</label><input type="text" name="" id="" /></div>
+		<div>
+			<label for="">Email Address</label><input
+				type="text"
+				name=""
+				id=""
+			/>
+		</div>
+		<div>
+			<label for="">Company Name</label><input
+				type="text"
+				name=""
+				id=""
+			/>
+		</div>
+		<div>
+			<label for="">Title</label><input type="text" name="" id="" />
+		</div>
+		<div>
+			<label for="">Message</label><input type="text" name="" id="" />
+		</div>
+		<input type="checkbox" name="" id="" />
+		<label for=""
+			>Stay up-to-date with company announcements and updates to our API</label
+		>
+		<Button variant="secondary-light" buttonType="submit">Submit</Button>
+	</form>
+	<div class="partners__text">
+		<h2>Who we work with</h2>
+		<p>
+			Today, millions of people around the world have successfully
+			connected their accounts to apps they love using our API. We provide
+			developers with the tools they need to create easy and accessible
+			experiences for their users.
+		</p>
+		<a href="/about"
+			><Button variant="secondary-dark" buttonType="button">
+				About Us
+			</Button></a
+		>
+	</div>
+	<section class="partners">
+		<div class="partners__text">
+			<h2>Join the thousands of innovators already building with us</h2>
+		</div>
+		<div class="partners__imageWrapper">
+			<Image src={Tesla} alt={"Tesla's logo"} />
+			<Image src={Microsoft} alt={"Microsoft's logo"} />
+			<Image src={HP} alt={"HP's logo"} />
+			<Image src={Oracle} alt={"Oracle's logo"} />
+			<Image src={Google} alt={"Google's logo"} />
+			<Image src={nvidia} alt={"nvidia's logo"} />
+		</div>
+	</section>
+</Layout>
 
-  <body>
-    Pricing
-    About
-    Contact
-    Schedule a Demo
-
-    Submit a help request and we’ll get in touch shortly.
-    
-    Name
-    Email Address
-    Company Name
-    Title
-    Message
-    Stay up-to-date with company announcements and updates to our API
-    Submit
-
-    Join the thousands of innovators already building with us
-
-    Ready to start? 
-    Enter email address 
-    Schedule a Demo
-
-    Pricing
-    About
-    Contact
-  </body>
-
-</html>
+<style lang="scss">
+	.partners {
+		color: var(--accent-100);
+		display: flex;
+		flex-direction: column-reverse;
+		padding-block: 5rem;
+		gap: 3rem;
+		background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
+		background-size: 200%;
+		background-position: center -150vw;
+		background-repeat: no-repeat;
+		&__text {
+			text-align: center;
+			h2 {
+				font-size: clamp(2rem, 10vw, 3rem);
+				margin-bottom: 1.5rem;
+			}
+			p {
+				font-size: clamp(0.75rem, 3.5vw, 1.5rem);
+				margin-bottom: 3rem;
+				color: var(--accent-100);
+				letter-spacing: 2px;
+				line-height: 150%;
+				font-weight: 100;
+				font-family: var(--ff-body);
+				opacity: 0.8;
+			}
+		}
+		&__imageWrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: repeat(3, 1fr);
+			place-items: center;
+			gap: 3rem;
+		}
+	}
+</style>
