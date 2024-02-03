@@ -1,68 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+import Button from "src/components/Button.astro";
+import Layout from "src/layouts/Layout.astro";
+---
 
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+<Layout title="PayAPI | Pricing">
+	<main>
+		<h1>Pricing</h1>
+		<div class="plansWrapper">
+			<section>
+				<div class="text">
+					<h3>Free Plan</h3>
+					<p>
+						Build and test using our core set of products with up to
+						100 API requests
+					</p>
 
-    <title>Frontend Mentor | PayAPI Website Challenge</title>
-  </head>
+					<h2>$0.00</h2>
+				</div>
 
-  <body>
-    Pricing
-    About
-    Contact
-    Schedule a Demo
+				<ul>
+					<li>Transactions</li>
+					<li>Auth</li>
+					<li>Identity</li>
+					<li class="no-marker">Investments</li>
+					<li class="no-marker">Assets</li>
+					<li class="no-marker">Liabilities</li>
+					<li class="no-marker">Income</li>
+				</ul>
+				<Button buttonType="button" variant="secondary-light">
+					Request Access
+				</Button>
+			</section>
+			<section>
+				<div class="text">
+					<h3>Basic Plan</h3>
+					<p>
+						Launch your project with unlimited requests and no
+						contractual minimums
+					</p>
 
-    Pricing
+					<h2>$249.00</h2>
+				</div>
 
-    Free Plan
-    Build and test using our core set of products with up to 100 API requests
-    $0.00
-    
-    Transactions
-    Auth
-    Identity
-    Investments
-    Assets
-    Liabilities
-    Income
-    Request Access
+				<ul>
+					<li>Transactions</li>
+					<li>Auth</li>
+					<li>Identity</li>
+					<li>Investments</li>
+					<li>Assets</li>
+					<li class="no-marker">Liabilities</li>
+					<li class="no-marker">Income</li>
+				</ul>
+				<Button buttonType="button" variant="secondary-light">
+					Request Access
+				</Button>
+			</section>
 
-    Basic Plan
-    Launch your project with unlimited requests and no contractual minimums
-    $249.00
-    
-    Transactions
-    Auth
-    Identity
-    Investments
-    Assets
-    Liabilities
-    Income
-    Request Access
+			<section>
+				<div class="text">
+					<h3>Premium Plan</h3>
+					<p>
+						Get tailored solutions, volume pricing, and dedicated
+						support for your team
+					</p>
 
-    Premium Plan
-    Get tailored solutions, volume pricing, and dedicated support for your team
-    $499.00
-    
-    Transactions
-    Auth
-    Identity
-    Investments
-    Assets
-    Liabilities
-    Income
-    Request Access
+					<h2>$499.00</h2>
+				</div>
 
-    Ready to start? 
-    Enter email address 
-    Schedule a Demo
+				<ul>
+					<li>Transactions</li>
+					<li>Auth</li>
+					<li>Identity</li>
+					<li>Investments</li>
+					<li>Assets</li>
+					<li>Liabilities</li>
+					<li>Income</li>
+				</ul>
+				<Button buttonType="button" variant="secondary-light">
+					Request Access
+				</Button>
+			</section>
+		</div>
+	</main>
+</Layout>
 
-    Pricing
-    About
-    Contact
-  </body>
+<style lang="scss">
+	@use "../sass/_variables.scss" as *;
+	body {
+		background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
+		background-size: 200%;
+		background-position: -25% -25%;
+		background-repeat: no-repeat;
+	}
+	main {
+		display: flex;
+		flex-direction: column;
+		padding-inline: 1.5rem;
+	}
+	h1 {
+		color: var(--primary-200);
+		margin-inline: auto;
+		font-size: clamp(1.75rem, 8vw, 2.25rem);
+		padding-block: 2rem 0;
+	}
+	section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-block: 3.5rem;
+	}
+	.text {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+		h3 {
+			color: var(--accent-200);
+			font-size: clamp(1.25rem, 7vw, 2rem);
+			margin-inline: auto;
+		}
+		p {
+			font-size: clamp(0.875rem, 2vw, 1.25rem);
+			color: var(--primary-100);
+			text-align: center;
+		}
+		h2 {
+			font-size: clamp(3.75rem, 8vw, 4.5rem);
+			color: var(--primary-200);
+		}
+	}
+	ul {
+		width: 100%;
+		border-top: 1px solid var(--accent-150);
+		border-bottom: 1px solid var(--accent-150);
+		border-color: rgba($primary-100, 0.3);
+		padding: 2rem 0 2rem 0;
 
-</html>
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		li {
+			margin-left: 30vw;
+			padding-inline-start: 1ch;
+			font-size: clamp(0.875rem, 4.5vw, 1.25rem);
+		}
+		li::marker {
+			content: url(/assets/pricing/tick.svg);
+		}
+		.no-marker {
+			color: var(--primary-200);
+			opacity: 0.7;
+			&::marker {
+				content: "";
+			}
+		}
+	}
+</style>
