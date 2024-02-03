@@ -1,62 +1,281 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+import { Image } from "astro:assets";
+import Layout from "src/layouts/Layout.astro";
+import peopleDesktop from "@assets/about/desktop/image-team-members.jpg";
+import peopleTablet from "@assets/about/tablet/image-team-members.jpg";
+import peopleMobile from "@assets/about/mobile/image-team-members.jpg";
+---
 
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
+<Layout title="PayAPI | About">
+	<main>
+		<section class="textSection">
+			<h1>
+				We empower innovators by delivering access to the financial
+				system
+			</h1>
 
-    <title>Frontend Mentor | PayAPI Website Challenge</title>
-  </head>
+			<div class="textWrapper">
+				<h2>Our Vision</h2>
+				<p>
+					Our main goal is to build beautiful consumer experiences
+					along with developer-friendly infrastructure. The result is
+					an intelligent tool that gives everyone the ability to
+					create amazing products that solve big problems. We are
+					deeply focused on democratizing financial services through
+					technology.
+				</p>
+			</div>
 
-  <body>
-    Pricing
-    About
-    Contact
-    Schedule a Demo
+			<div class="textWrapper">
+				<h2>Our Business</h2>
+				<p>
+					At the core of our platform is the technical infrastructure
+					APIs that connect consumers. Our innovative product provides
+					key insights for businesses and individuals, as well as
+					robust reporting for traditional financial institutions and
+					developers.
+				</p>
+			</div>
+		</section>
 
-    We empower innovators by delivering access to the financial system
+		<Image
+			class="mobileOnly"
+			src={peopleMobile}
+			alt={"People sitting at the table and discussing"}
+		/>
+		<Image
+			class="tabletOnly"
+			src={peopleTablet}
+			alt={"People sitting at the table and discussing"}
+		/>
+		<Image
+			class="desktopOnly"
+			src={peopleDesktop}
+			alt={"People sitting at the table and discussing"}
+		/>
+		<section class="table">
+			<div class="data">
+				<h3>Team Members</h3>
+				<h2>300+</h2>
+			</div>
 
-    Our Vision
+			<div class="data">
+				<h3>Offices in the US</h3>
+				<h2>3</h2>
+			</div>
 
-    Our main goal is to build beautiful consumer experiences along with developer-friendly 
-    infrastructure. The result is an intelligent tool that gives everyone the ability to create 
-    amazing products that solve big problems. We are deeply focused on democratizing financial 
-    services through technology.
+			<div class="data">
+				<h3>Transactions analyzed</h3>
+				<h2>10M+</h2>
+			</div>
+		</section>
+		<section class="textSection">
+			<div class="textWrapper">
+				<h2>The Culture</h2>
+				<p>
+					We strongly believe there's always an opportunity to learn
+					from each other outside of day-to-day work, whether it's
+					company-wide offsites, internal hackathons, or co-worker
+					meetups. We always value cross-team collaboration and
+					diversity of thought, no matter the job title.
+				</p>
+			</div>
 
-    Our Business
+			<div class="textWrapper">
+				<h2>The People</h2>
+				<p>
+					We're all passionate about building a more efficient and
+					inclusive financial infrastructure together. At PayAPI, we
+					have diverse backgrounds and skills.
+				</p>
+			</div>
+		</section>
+	</main>
+</Layout>
 
-    At the core of our platform is the technical infrastructure APIs that connect consumers. 
-    Our innovative product provides key insights for businesses and individuals, as well as 
-    robust reporting for traditional financial institutions and developers.
+<style lang="scss">
+	@use "../sass/_variables.scss" as *;
+	body {
+		background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
+		background-size: 200%;
+		background-position: -25% -25%;
+		background-repeat: no-repeat;
+	}
+	main {
+		display: flex;
+		flex-direction: column;
+	}
+	section {
+		margin-inline: 1.5rem;
+		padding-block: 5rem;
+		&:first-of-type {
+			padding-block: 0 5rem;
+		}
+		&:last-of-type {
+			padding-block: 0;
+		}
+	}
+	.textSection {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+	h1 {
+		color: var(--primary-200);
+		text-align: center;
+		font-family: var(--ff-heading);
+		font-size: clamp(1.75rem, 8vw, 2.25rem);
+	}
+	.textWrapper {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
 
-    Team Members 
-    300+
+		h2 {
+			color: var(--primary-200);
+			font-size: clamp(1.25rem, 7vw, 1.75rem);
+		}
+		p {
+			color: var(--primary-100);
+			font-size: clamp(0.875rem, 3.5vw, 1.25rem);
+		}
+	}
 
-    Offices in the US 
-    3
+	img {
+		object-fit: contain;
+		width: 100vw;
+		height: auto;
+	}
+	.mobileOnly {
+		display: block;
+	}
+	.desktopOnly,
+	.tabletOnly {
+		display: none;
+	}
+	.table {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-top: 1px solid var(--accent-150);
+		border-bottom: 1px solid var(--accent-150);
+		border-color: rgba($primary-100, 0.3);
+		margin-block: 3rem;
+		gap: 3rem;
+		padding-block: 1.5rem;
+	}
 
-    Transactions analyzed 
-    10M+
+	.data {
+		display: flex;
+		flex-direction: column;
+		//gap: 0.5rem;
+		text-align: center;
+		h3 {
+			color: var(--primary-100);
+			font-size: clamp(0.875rem, 4.5vw, 1.25rem);
+			font-weight: var(--fw-400);
+			font-family: var(--ff-body);
+		}
+		h2 {
+			color: var(--accent-200);
+			font-size: clamp(3.75rem, 16vw, 4.5rem);
+		}
+	}
+	@media only screen and (min-width: 768px) {
+		body {
+			background-size: 80%;
+			background-position: 320% -20%;
+		}
+		section {
+			margin-inline: 2.5rem;
+		}
+		h1 {
+			font-size: clamp(2.75rem, 6.25vw, 3.25rem);
+		}
+		.textWrapper {
+			flex-direction: row;
+			text-align: start;
 
-    The Culture
+			h2 {
+				width: 30%;
+				font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+			}
+			p {
+				width: 70%;
+				font-size: clamp(0.875rem, 2vw, 1.25rem);
+				line-height: 180%;
+			}
+		}
+		.table {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		.data {
+			h3 {
+				font-size: clamp(0.875rem, 2vw, 1.25rem);
+			}
+			h2 {
+				font-size: clamp(3.75rem, 7.5vw, 4.25rem);
+			}
+		}
+		.tabletOnly {
+			display: block;
+		}
+		.desktopOnly,
+		.mobileOnly {
+			display: none;
+		}
+	}
 
-    We strongly believe there's always an opportunity to learn from each other outside of 
-    day-to-day work, whether it's company-wide offsites, internal hackathons, or co-worker meetups. 
-    We always value cross-team collaboration and diversity of thought, no matter the job title.
-
-    The People
-    
-    We're all passionate about building a more efficient and inclusive financial infrastructure 
-    together. At PayAPI, we have diverse backgrounds and skills.
-
-    Ready to start? 
-    Enter email address 
-    Schedule a Demo
-
-    Pricing
-    About
-    Contact
-  </body>
-
-</html>
+	@media only screen and (min-width: 1440px) {
+		body {
+			background-size: 50%;
+			background-position: 60vw -55vh;
+		}
+		main {
+			background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
+			background-size: 100vh;
+			background-position: -30vw center;
+			background-repeat: no-repeat;
+		}
+		section {
+			margin-inline: 17.5vw;
+		}
+		section {
+			padding-block: 6rem;
+			&:first-of-type {
+				padding-block: 0 6rem;
+			}
+			&:last-of-type {
+				padding-block: 0;
+			}
+		}
+		h1 {
+			font-size: clamp(3.75rem, 7.5vw, 4.25rem);
+			text-align: left;
+			line-height: 120%;
+		}
+		.textSection {
+			gap: 4.5rem;
+		}
+		.textWrapper {
+			h2 {
+				font-size: clamp(1.75rem, 2.25vw, 2.25rem);
+			}
+			p {
+				font-size: clamp(0.875rem, 1.1vw, 1.25rem);
+			}
+		}
+		.table {
+			margin-inline: 12.5vw;
+		}
+		.desktopOnly {
+			display: block;
+		}
+		.tabletOnly,
+		.mobileOnly {
+			display: none;
+		}
+	}
+</style>
