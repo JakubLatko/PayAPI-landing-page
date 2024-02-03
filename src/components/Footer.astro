@@ -6,7 +6,7 @@ import NewsletterForm from "./NewsletterForm.astro";
 ---
 
 <section>
-	<NewsletterForm visible={true} />
+	<NewsletterForm visible={true} hero={false} />
 	<footer>
 		<a class="logo" href="/">
 			<Image src={logo} alt={"PayAPI's logo"} />
@@ -72,7 +72,7 @@ import NewsletterForm from "./NewsletterForm.astro";
 		flex-direction: column;
 		align-items: center;
 		gap: 2.5rem;
-		background-image: url(../../public/assets/shared/desktop/bg-pattern-circle.svg);
+		background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
 		background-position: center 25vh;
 		background-size: 200%;
 		background-repeat: no-repeat;

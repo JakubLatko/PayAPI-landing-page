@@ -21,7 +21,7 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 	<section class="hero">
 		<div class="hero__content">
 			<h1>Start building with our APIs for absolutely free.</h1>
-			<NewsletterForm visible={false} />
+			<NewsletterForm visible={false} hero={true} />
 			<div>
 				<p>Have any questions?</p>
 				<a href="/contact">Contact Us</a>
@@ -332,6 +332,7 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			}
 		}
 		.partners {
+			background-position: center;
 			&__imageWrapper {
 				grid-template-columns: 1fr 1fr 1fr;
 				grid-template-rows: 1fr 1fr;
@@ -383,6 +384,108 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 						margin-inline: auto;
 						line-height: 180%;
 					}
+				}
+			}
+		}
+	}
+
+	@media only screen and (min-width: 1440px) {
+		body {
+			background-size: 50%;
+			background-position: 120% -2.5%;
+		}
+		.hero {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			&__content {
+				text-align: left;
+				max-width: 50%;
+				div {
+					margin-inline: 0;
+					justify-content: start;
+					p,
+					a {
+						font-size: clamp(0.875rem, 1vw, 1.5rem);
+					}
+				}
+			}
+			&__image {
+				margin-inline: auto;
+				img {
+					max-width: 20vw;
+
+					margin-right: 50%;
+				}
+			}
+		}
+		.partners {
+			flex-direction: row;
+			justify-content: space-between;
+			background-position: -25% 110%;
+			background-size: 60%;
+			padding-block: 8rem;
+			&__text {
+				text-align: left;
+				h2 {
+					font-size: clamp(2.5rem, 3.5vw, 3.5rem);
+				}
+				p {
+					font-size: clamp(0.875rem, 1vw, 1.5rem);
+					max-width: 45ch;
+					margin-inline: 0;
+				}
+			}
+			&__imageWrapper {
+				img {
+					//width: 10%;
+				}
+			}
+		}
+		.majorPerks {
+			background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
+			background-size: 50%;
+			background-position: 150% bottom;
+			background-repeat: no-repeat;
+			padding-block: 8rem;
+			.majorPerk {
+				display: flex;
+				flex-direction: row;
+				gap: 8rem;
+				&__text {
+					text-align: left;
+					margin-block: auto;
+					h2 {
+						font-size: clamp(2.5rem, 3.5vw, 3.5rem);
+					}
+					p {
+						font-size: clamp(0.875rem, 1vw, 1.5rem);
+					}
+				}
+				&__image {
+					img {
+						max-width: 35vw;
+					}
+				}
+				&:last-of-type {
+					flex-direction: row-reverse;
+				}
+			}
+		}
+		.minorPerks {
+			justify-content: space-between;
+			padding-inline: 10vw;
+			.minorPerk {
+				&__text {
+					h3 {
+						font-size: clamp(1rem, 1.25vw, 1.5rem);
+					}
+					p {
+						font-size: clamp(0.875rem, 1vw, 1.5rem);
+						max-width: none;
+					}
+				}
+				&__image {
 				}
 			}
 		}

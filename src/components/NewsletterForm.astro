@@ -1,15 +1,16 @@
 ---
 import Button from "./Button.astro";
 
-const { visible } = Astro.props;
+const { visible, hero } = Astro.props;
 interface Props {
 	visible: boolean;
+	hero: boolean;
 }
 ---
 
-<div class="formWrapper">
+<div class:list={["formWrapper", { hero }]}>
 	<h2 class:list={[{ visible }]}>Ready to start?</h2>
-	<form autocomplete="off">
+	<form autocomplete="off" class:list={[{ hero }]}>
 		<input
 			placeholder="Enter email address"
 			type="email"
@@ -102,9 +103,11 @@ interface Props {
 			margin-inline: 10vw;
 			justify-content: space-between;
 		}
+
 		form {
 			width: 50%;
 			margin: 0;
+
 			input {
 				flex-grow: 1;
 			}
@@ -112,6 +115,19 @@ interface Props {
 
 		h2 {
 			font-size: clamp(2rem, 4vw, 4rem);
+		}
+		form.hero {
+			width: 100%;
+			margin: 0;
+
+			input {
+				flex-grow: 1;
+			}
+		}
+		div.hero {
+			flex-direction: row;
+			margin: 0;
+			justify-content: space-between;
 		}
 	}
 </style>
