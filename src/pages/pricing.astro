@@ -27,9 +27,11 @@ import Layout from "src/layouts/Layout.astro";
 					<li class="no-marker">Liabilities</li>
 					<li class="no-marker">Income</li>
 				</ul>
-				<Button buttonType="button" variant="secondary-light">
-					Request Access
-				</Button>
+				<a href="/contact"
+					><Button buttonType="button" variant="secondary-light">
+						Request Access
+					</Button></a
+				>
 			</section>
 			<section>
 				<div class="text">
@@ -51,9 +53,11 @@ import Layout from "src/layouts/Layout.astro";
 					<li class="no-marker">Liabilities</li>
 					<li class="no-marker">Income</li>
 				</ul>
-				<Button buttonType="button" variant="secondary-light">
-					Request Access
-				</Button>
+				<a href="/contact"
+					><Button buttonType="button" variant="secondary-light">
+						Request Access
+					</Button></a
+				>
 			</section>
 
 			<section>
@@ -76,9 +80,11 @@ import Layout from "src/layouts/Layout.astro";
 					<li>Liabilities</li>
 					<li>Income</li>
 				</ul>
-				<Button buttonType="button" variant="secondary-light">
-					Request Access
-				</Button>
+				<a href="/contact"
+					><Button buttonType="button" variant="secondary-light">
+						Request Access
+					</Button></a
+				>
 			</section>
 		</div>
 	</main>
@@ -88,8 +94,8 @@ import Layout from "src/layouts/Layout.astro";
 	@use "../sass/_variables.scss" as *;
 	body {
 		background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
-		background-size: 200%;
-		background-position: -25% -25%;
+		background-size: 200vw;
+		background-position: 10vw -75vh;
 		background-repeat: no-repeat;
 	}
 	main {
@@ -158,8 +164,8 @@ import Layout from "src/layouts/Layout.astro";
 
 	@media only screen and (min-width: 768px) {
 		body {
-			background-size: 80%;
-			background-position: 330% -40%;
+			background-size: 80vw;
+			background-position: 60vw -40vh;
 		}
 		main {
 			padding-inline: 2.5rem;
@@ -194,8 +200,8 @@ import Layout from "src/layouts/Layout.astro";
 	}
 	@media only screen and (min-width: 1440px) {
 		body {
-			background-size: 50%;
-			background-position: 120% -70%;
+			background-size: 50vw;
+			background-position: 60vw -55vh;
 		}
 		main {
 			padding-inline: 10vw;
