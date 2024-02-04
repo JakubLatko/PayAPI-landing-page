@@ -11,81 +11,189 @@ import { Image } from "astro:assets";
 ---
 
 <Layout title="PayAPI | Contact">
-	<h1>Submit a help request and we’ll get in touch shortly.</h1>
-
-	<form action="">
-		<div><label for="">Name</label><input type="text" name="" id="" /></div>
-		<div>
-			<label for="">Email Address</label><input
-				type="text"
-				name=""
-				id=""
-			/>
+	<main>
+		<h1>Submit a help request and we’ll get in touch shortly.</h1>
+		<div class="everythingWrapper">
+			<form>
+				<div class="inputDiv">
+					<label for="name">Name</label>
+					<input type="text" name="name" id="name" required />
+				</div>
+				<div class="inputDiv">
+					<label for="email">Email Address</label>
+					<input type="email" name="email" id="email" required />
+				</div>
+				<div class="inputDiv">
+					<label for="company">Company Name</label>
+					<input type="text" name="company" id="company" required />
+				</div>
+				<div class="inputDiv">
+					<label for="title">Title</label>
+					<input type="text" name="title" id="title" required />
+				</div>
+				<div class="inputDiv">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" required></textarea>
+				</div>
+				<div class="checkboxDiv">
+					<input type="checkbox" name="newsletter" id="newsletter" />
+					<label for="newsletter"
+						>Stay up-to-date with company announcements and updates
+						to our API
+					</label>
+				</div>
+				<Button
+					variant="secondary-light morePadding"
+					buttonType="submit">
+					Submit
+				</Button>
+			</form>
+			<section class="partners">
+				<div class="partners__text">
+					<h2>
+						Join the thousands of innovators already building with
+						us
+					</h2>
+				</div>
+				<div class="partners__imageWrapper">
+					<Image src={Tesla} alt={"Tesla's logo"} />
+					<Image src={Microsoft} alt={"Microsoft's logo"} />
+					<Image src={HP} alt={"HP's logo"} />
+					<Image src={Oracle} alt={"Oracle's logo"} />
+					<Image src={Google} alt={"Google's logo"} />
+					<Image src={nvidia} alt={"nvidia's logo"} />
+				</div>
+			</section>
 		</div>
-		<div>
-			<label for="">Company Name</label><input
-				type="text"
-				name=""
-				id=""
-			/>
-		</div>
-		<div>
-			<label for="">Title</label><input type="text" name="" id="" />
-		</div>
-		<div>
-			<label for="">Message</label><input type="text" name="" id="" />
-		</div>
-		<input type="checkbox" name="" id="" />
-		<label for=""
-			>Stay up-to-date with company announcements and updates to our API</label
-		>
-		<Button variant="secondary-light" buttonType="submit">Submit</Button>
-	</form>
-	<div class="partners__text">
-		<h2>Who we work with</h2>
-		<p>
-			Today, millions of people around the world have successfully
-			connected their accounts to apps they love using our API. We provide
-			developers with the tools they need to create easy and accessible
-			experiences for their users.
-		</p>
-		<a href="/about"
-			><Button variant="secondary-dark" buttonType="button">
-				About Us
-			</Button></a
-		>
-	</div>
-	<section class="partners">
-		<div class="partners__text">
-			<h2>Join the thousands of innovators already building with us</h2>
-		</div>
-		<div class="partners__imageWrapper">
-			<Image src={Tesla} alt={"Tesla's logo"} />
-			<Image src={Microsoft} alt={"Microsoft's logo"} />
-			<Image src={HP} alt={"HP's logo"} />
-			<Image src={Oracle} alt={"Oracle's logo"} />
-			<Image src={Google} alt={"Google's logo"} />
-			<Image src={nvidia} alt={"nvidia's logo"} />
-		</div>
-	</section>
+	</main>
 </Layout>
 
 <style lang="scss">
+	body {
+		background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
+		background-size: 200%;
+		background-position: -40% -45%;
+		background-repeat: no-repeat;
+	}
+	main {
+		padding-inline: 1.5rem;
+	}
+	h1 {
+		text-align: center;
+		color: var(--primary-200);
+		line-height: 120%;
+		font-size: clamp(1.75rem, 8.5vw, 2.25rem);
+	}
+
+	form {
+		padding-block: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.inputDiv {
+		display: flex;
+		flex-direction: column;
+		&:focus-within {
+			input,
+			textarea,
+			label {
+				opacity: 1;
+				color: var(--primary-200);
+			}
+		}
+		label {
+			margin-left: 1.5rem;
+			font-family: var(--ff-body);
+			color: var(--primary-100);
+			opacity: 0.7;
+		}
+		input,
+		textarea {
+			border: 0;
+			border-bottom: 1px solid var(--primary-100);
+			background-color: transparent;
+			opacity: 0.7;
+		}
+		input:user-invalid {
+			border-bottom: 1px solid red;
+			background-color: transparent;
+			opacity: 1;
+			color: red;
+		}
+		textarea:user-invalid {
+			border-bottom: 1px solid red;
+			background-color: transparent;
+			opacity: 1;
+			color: red;
+		}
+	}
+	.inputDiv:has(input:user-invalid),
+	.inputDiv:has(textarea:user-invalid) {
+		label {
+			color: red;
+		}
+		&::after {
+			content: "This field can't be empty";
+			color: red;
+			font-size: clamp(0.5rem, 3vw, 1rem);
+			margin-left: 1.5rem;
+			margin-top: 1ch;
+		}
+		&:has(input[type="email"])::after {
+			content: "This field can't be empty and has to be an email";
+		}
+	}
+	.checkboxDiv {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 1.5rem;
+		align-items: center;
+		input {
+			min-width: 1.5rem;
+			height: fit-content;
+			width: 1.5rem;
+			aspect-ratio: 1;
+			background-color: red;
+			border: 0;
+			color: red;
+			accent-color: red;
+			//outline: 1px solid red;
+			position: relative;
+			opacity: 1;
+			margin: auto 0;
+			&::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background-color: hsl(0, 0%, 69%);
+				opacity: 1;
+			}
+		}
+		label {
+			font-size: clamp(0.75rem, 4vw, 1.25rem);
+			color: var(--primary-100);
+		}
+		input:checked {
+			accent-color: var(--accent-250);
+			&::before {
+				display: none;
+			}
+		}
+	}
 	.partners {
 		color: var(--accent-100);
 		display: flex;
-		flex-direction: column-reverse;
-		padding-block: 5rem;
-		gap: 3rem;
-		background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
-		background-size: 200%;
-		background-position: center -150vw;
-		background-repeat: no-repeat;
+		flex-direction: column;
+		padding-block: 5rem 0;
+		gap: 2.5rem;
 		&__text {
 			text-align: center;
 			h2 {
-				font-size: clamp(2rem, 10vw, 3rem);
+				font-size: clamp(1.25rem, 7vw, 2.25rem);
 				margin-bottom: 1.5rem;
+				color: var(--primary-100);
 			}
 			p {
 				font-size: clamp(0.75rem, 3.5vw, 1.5rem);
@@ -106,4 +214,98 @@ import { Image } from "astro:assets";
 			gap: 3rem;
 		}
 	}
+	@media only screen and (min-width: 768px) {
+		body {
+			background-size: 80%;
+			background-position: 320% -30%;
+		}
+
+		main {
+			padding-inline: 10vw;
+		}
+		h1 {
+			font-size: clamp(2.5rem, 6vw, 3.5rem);
+		}
+		.checkboxDiv {
+			label {
+				font-size: clamp(0.75rem, 2.25vw, 1.25rem);
+			}
+		}
+		.partners {
+			background-position: center;
+			&__imageWrapper {
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: 1fr 1fr;
+				place-items: center;
+			}
+			&__text {
+				h2 {
+					font-size: clamp(1.25rem, 3.5vw, 2rem);
+				}
+				p {
+					font-size: clamp(0.875rem, 2vw, 1.5rem);
+					max-width: 60ch;
+					margin-inline: auto;
+					line-height: 180%;
+				}
+			}
+		}
+	}
+
+	@media only screen and (min-width: 1440px) {
+		body {
+			background-size: 50%;
+			background-position: 60vw -55vh;
+		}
+		main {
+			padding-inline: 10vw;
+		}
+		.everythingWrapper {
+			display: flex;
+			flex-direction: row;
+			gap: 8rem;
+			form {
+				min-width: 40%;
+			}
+		}
+		h1 {
+			text-align: initial;
+			font-size: clamp(3.5rem, 4vw, 4.5rem);
+			max-width: 25ch;
+		}
+		.partners {
+			// flex-direction: row;
+			justify-content: space-between;
+			background-position: -25% 110%;
+			background-size: 60%;
+			padding-block: 8rem;
+			gap: 3rem;
+			justify-content: center;
+			&__text {
+				text-align: left;
+				h2 {
+					font-size: clamp(1.25rem, 1.75vw, 1.75rem);
+				}
+				p {
+					font-size: clamp(0.875rem, 1vw, 1.5rem);
+					max-width: 45ch;
+					margin-inline: 0;
+				}
+			}
+		}
+	}
 </style>
+
+<script is:inline>
+	const contactForm = document.querySelector("form");
+	const inputs = contactForm.querySelectorAll("input");
+	const textArea = contactForm.querySelector("textarea");
+	contactForm?.addEventListener("submit", (e) => {
+		e.preventDefault();
+		textArea.value = "";
+		inputs.forEach((input) => {
+			input.value = "";
+			console.log("dupa");
+		});
+	});
+</script>

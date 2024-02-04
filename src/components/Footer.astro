@@ -145,12 +145,3 @@ import NewsletterForm from "./NewsletterForm.astro";
 		}
 	}
 </style>
-
-<script is:inline>
-	const form = document.querySelector("form");
-	const input = form.querySelector("input");
-	form?.addEventListener("submit", (e) => {
-		e.preventDefault();
-		input.value = "";
-	});
-</script>

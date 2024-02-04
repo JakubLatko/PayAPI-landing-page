@@ -6,21 +6,21 @@ import Button from "./Button.astro";
 import Close from "../../public/assets/shared/mobile/close.svg";
 ---
 
-<header>
+<header transition:persist>
 	<a href="/" class="logoLink">
 		<Image src={logo} alt={"PayAPI logo"} />
 	</a>
 	<button class="burger">
 		<Image src={burger} alt={"Open the navigation menu"} />
 	</button>
-	<nav class="hidden" data-astro-reload>
+	<nav class="hidden">
 		<button class="close">
 			<Image src={Close} alt="Close menu" />
 		</button>
 		<ul>
-			<li><a href="/pricing" data-astro-reload>Pricing</a></li>
-			<li><a href="/about" data-astro-reload>About</a></li>
-			<li><a href="/contact" data-astro-reload>Contact</a></li>
+			<li><a href="/pricing">Pricing</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/contact">Contact</a></li>
 		</ul>
 		<a href="contact" class="CTA">
 			<Button buttonType="button" variant="primary mobile-menu">
@@ -211,6 +211,9 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 </style>
 
 <script>
+	// function everything() {
+
+	// }
 	const burgerButton = document.querySelector(".burger");
 	const closeButton = document.querySelector(".close");
 	const navElement = document.querySelector("nav");
@@ -219,7 +222,7 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 	closeButton?.addEventListener("click", menuFunc);
 
 	let menuOpened: Boolean = false;
-	function menuFunc() {
+	export function menuFunc() {
 		menuOpened = !menuOpened;
 		if (menuOpened) {
 			navElement?.setAttribute("aria-visible", "true");
@@ -231,7 +234,7 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 	}
 	window.addEventListener("resize", widthCheck);
 	window.addEventListener("load", widthCheck);
-	function widthCheck() {
+	export function widthCheck() {
 		if (window.innerWidth > 767) {
 			navElement?.setAttribute("aria-visible", "true");
 			navElement?.classList.remove("hidden");
@@ -240,4 +243,16 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 			navElement?.classList.add("hidden");
 		}
 	}
+	document.addEventListener("astro:page-load", menuFunc);
+	document.addEventListener("astro:page-load", widthCheck);
+	document.addEventListener("astro:page-load", () => {
+		menuOpened = false;
+		if (window.innerWidth > 767) {
+			navElement?.setAttribute("aria-visible", "true");
+			navElement?.classList.remove("hidden");
+		} else if (window.innerWidth < 767) {
+			navElement?.setAttribute("aria-visible", "false");
+			navElement?.classList.add("hidden");
+		}
+	});
 </script>

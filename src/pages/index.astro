@@ -22,6 +22,21 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 		<div class="hero__content">
 			<h1>Start building with our APIs for absolutely free.</h1>
 			<NewsletterForm visible={false} hero={true} />
+			<!-- <div class="formWrapper hero">
+				<h2 class="visible">Ready to start?</h2>
+				<form autocomplete="off" class="hero">
+					<input
+						placeholder="Enter email address"
+						type="email"
+						name="email"
+						id="email"
+					/>
+					<Button buttonType="submit" variant="primary mobile-menu">
+						Schedule a Demo
+					</Button>
+				</form>
+			</div> -->
+
 			<div>
 				<p>Have any questions?</p>
 				<a href="/contact">Contact Us</a>
@@ -189,7 +204,38 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			}
 		}
 	}
+	// .formWrapper {
+	// 	margin-inline: 1.5rem;
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	align-items: center;
+	// 	gap: 2rem;
+	// }
 
+	// h2 {
+	// 	color: var(--primary-200);
+	// 	font-size: clamp(1.5rem, 8vw, 2.5rem);
+	// 	display: none;
+	// }
+	// .visible {
+	// 	display: block;
+	// }
+	// form {
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	align-items: center;
+	// 	gap: 1rem;
+	// 	width: 100%;
+	// 	input {
+	// 		border-radius: 100vw;
+	// 		width: 100%;
+	// 		padding: 1rem 1.5rem;
+	// 		border: 0;
+	// 		box-shadow: 10px 10px 25px -10px rgba(54, 83, 107, 0.25);
+	// 		background-color: transparent;
+	// 		z-index: 100;
+	// 	}
+	// }
 	.partners {
 		background-color: var(--primary-300);
 		color: var(--accent-100);
@@ -331,6 +377,33 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 				}
 			}
 		}
+		// .formWrapper {
+		// 	justify-content: center;
+		// 	align-items: center;
+		// }
+		// h2 {
+		// 	font-size: clamp(1.5rem, 6vwvw, 2.5rem);
+		// }
+		// form {
+		// 	flex-direction: row;
+		// 	margin-inline: auto;
+		// 	width: 100%;
+		// 	box-shadow: 10px 10px 25px -10px rgba(54, 83, 107, 0.25);
+		// 	background-color: var(--accent-100);
+		// 	opacity: 1;
+		// 	border-radius: 100vw;
+		// 	position: relative;
+		// 	max-width: 500px;
+
+		// 	input {
+		// 		width: fit-content;
+		// 		flex-grow: 1;
+		// 		box-shadow: none;
+		// 		z-index: 100;
+
+		// 		background-color: transparent;
+		// 	}
+		// }
 		.partners {
 			background-position: center;
 			&__imageWrapper {
@@ -491,3 +564,17 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 		}
 	}
 </style>
+
+<script is:inline>
+	const contactForm = document.querySelector("form.hero");
+	const inputs = contactForm.querySelectorAll("input");
+	const textArea = contactForm.querySelector("textarea");
+	contactForm?.addEventListener("submit", (e) => {
+		e.preventDefault();
+		textArea.value = "";
+		inputs.forEach((input) => {
+			input.value = "";
+			console.log("dupa");
+		});
+	});
+</script>

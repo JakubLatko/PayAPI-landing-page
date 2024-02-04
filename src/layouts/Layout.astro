@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
-import { ViewTransitions } from "astro:transitions";
+import { ViewTransitions, fade } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../sass/index.scss";
@@ -23,11 +23,16 @@ import "../sass/index.scss";
 			href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Public+Sans:wght@100..900&display=swap"
 			rel="stylesheet"
 		/>
-		<!-- <ViewTransitions /> -->
+		<link
+			rel="shortcut icon"
+			href="/assets/shared/favicon.png"
+			type="image/x-icon"
+		/>
+		<ViewTransitions />
 		<title>{title}</title>
 	</head>
 	<body>
-		<Header />
+		<Header transition:persist />
 		<slot />
 		<Footer />
 		<style is:global>
@@ -70,5 +75,24 @@ import "../sass/index.scss";
 				font-weight: 400;
 			}
 		</style>
+		<script>
+			function handlingForms() {
+				console.log("reload");
+				const forms = document.querySelectorAll(".newsletterForm");
+
+				forms.forEach((form) => {
+					form.addEventListener("submit", (e) => {
+						const input = form.querySelector("input");
+						e.preventDefault();
+						if (!input) {
+							return;
+						}
+						input.value = "";
+					});
+				});
+			}
+
+			document.addEventListener("astro:page-load", handlingForms);
+		</script>
 	</body>
 </html>
