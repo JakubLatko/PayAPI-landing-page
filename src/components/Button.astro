@@ -72,6 +72,17 @@ const { variant, buttonType } = Astro.props;
 	button.morePadding {
 		padding: 1rem 2.5rem;
 	}
+	@media only screen and (min-width: 425px) {
+		button {
+			font-size: clamp(0.75rem, 4.5vw, 1.5rem);
+		}
+	}
+
+	@media only screen and (min-width: 599px) {
+		button {
+			font-size: clamp(0.75rem, 3vw, 1.5rem);
+		}
+	}
 	@media only screen and (min-width: 768px) {
 		button.mobile-menu {
 			width: fit-content;
@@ -89,9 +100,15 @@ const { variant, buttonType } = Astro.props;
 		}
 	}
 
-	@media only screen and (min-width: 1440px) {
+	@media only screen and (min-width: 1366px) {
 		button {
 			font-size: clamp(0.5rem, 1vw, 1.5rem);
+		}
+	}
+	@media only screen and (min-width: 2559px) {
+		button {
+			font-size: clamp(0.5rem, 1vw, 1.5rem);
+			width: fit-content;
 		}
 	}
 </style>

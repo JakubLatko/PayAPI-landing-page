@@ -14,7 +14,7 @@ import { Image } from "astro:assets";
 	<main>
 		<h1>Submit a help request and we’ll get in touch shortly.</h1>
 		<div class="everythingWrapper">
-			<form>
+			<form data-netlify="true" name="mainForm" method="POST">
 				<div class="inputDiv">
 					<label for="name">Name</label>
 					<input type="text" name="name" id="name" required />
@@ -252,7 +252,7 @@ import { Image } from "astro:assets";
 		}
 	}
 
-	@media only screen and (min-width: 1440px) {
+	@media only screen and (min-width: 1366px) {
 		body {
 			background-size: 50vw;
 			background-position: 60vw -55vh;

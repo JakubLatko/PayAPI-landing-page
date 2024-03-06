@@ -194,7 +194,7 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 		}
 	}
 
-	@media only screen and (min-width: 1440px) {
+	@media only screen and (min-width: 1366px) {
 		header {
 			margin-inline: 10vw;
 		}
@@ -206,6 +206,25 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 					font-weight: var(--fw-700);
 				}
 			}
+		}
+	}
+	@media only screen and (min-width: 2559px) {
+		.logoLink {
+			transform: scale(1.5) translateX(25%);
+		}
+		ul {
+			margin-left: 3rem;
+			gap: 5rem;
+			li {
+				a {
+					font-size: clamp(1rem, 1.125vw, 2.5rem);
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: 3839px) {
+		header {
+			margin-inline: 20vw;
 		}
 	}
 </style>
@@ -225,10 +244,10 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 	export function menuFunc() {
 		menuOpened = !menuOpened;
 		if (menuOpened) {
-			navElement?.setAttribute("aria-visible", "true");
+			navElement?.setAttribute("aria-expanded", "true");
 			navElement?.classList.remove("hidden");
 		} else if (!menuOpened) {
-			navElement?.setAttribute("aria-visible", "false");
+			navElement?.setAttribute("aria-expanded", "false");
 			navElement?.classList.add("hidden");
 		}
 	}
@@ -236,10 +255,10 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 	window.addEventListener("load", widthCheck);
 	export function widthCheck() {
 		if (window.innerWidth > 767) {
-			navElement?.setAttribute("aria-visible", "true");
+			navElement?.setAttribute("aria-expanded", "true");
 			navElement?.classList.remove("hidden");
 		} else if (window.innerWidth < 767) {
-			navElement?.setAttribute("aria-visible", "false");
+			navElement?.setAttribute("aria-expanded", "false");
 			navElement?.classList.add("hidden");
 		}
 	}
@@ -248,10 +267,10 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 	document.addEventListener("astro:page-load", () => {
 		menuOpened = false;
 		if (window.innerWidth > 767) {
-			navElement?.setAttribute("aria-visible", "true");
+			navElement?.setAttribute("aria-expanded", "true");
 			navElement?.classList.remove("hidden");
 		} else if (window.innerWidth < 767) {
-			navElement?.setAttribute("aria-visible", "false");
+			navElement?.setAttribute("aria-expanded", "false");
 			navElement?.classList.add("hidden");
 		}
 	});

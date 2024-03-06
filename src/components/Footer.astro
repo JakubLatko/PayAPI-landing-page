@@ -19,7 +19,7 @@ import NewsletterForm from "./NewsletterForm.astro";
 			</ul>
 		</nav>
 		<div class="socialMedia">
-			<a href="/"
+			<a href="https://www.facebook.com/"
 				><svg
 					class="socialMediaIcon"
 					width="24"
@@ -30,7 +30,7 @@ import NewsletterForm from "./NewsletterForm.astro";
 						fill="#FBFCFE"
 						fill-rule="nonzero"></path></svg
 				></a
-			><a href="/"
+			><a href="https://www.instagram.com/"
 				><svg
 					class="socialMediaIcon"
 					width="24"
@@ -41,7 +41,7 @@ import NewsletterForm from "./NewsletterForm.astro";
 						fill="#FBFCFE"
 						fill-rule="nonzero"></path></svg
 				></a
-			><a href="/"
+			><a href="https://www.linkedin.com/"
 				><svg
 					class="socialMediaIcon"
 					width="24"
@@ -133,7 +133,7 @@ import NewsletterForm from "./NewsletterForm.astro";
 			margin-left: auto;
 		}
 	}
-	@media only screen and (min-width: 1440px) {
+	@media only screen and (min-width: 1366px) {
 		footer {
 			padding-inline: 10vw;
 		}
@@ -142,6 +142,39 @@ import NewsletterForm from "./NewsletterForm.astro";
 		}
 		.socialMedia {
 			gap: 2rem;
+		}
+	}
+
+	@media only screen and (min-width: 2559px) {
+		footer {
+			padding-block: 4rem;
+		}
+		.logo {
+			transform: scale(2);
+		}
+		nav {
+			margin-left: 5rem;
+			ul {
+				li {
+					a {
+						font-size: clamp(1rem, 1.25vw, 3rem);
+					}
+				}
+			}
+		}
+		.socialMedia {
+			gap: 5rem;
+			a {
+				transform: scale(2);
+			}
+		}
+	}
+	@media only screen and (min-width: 3839px) {
+		footer {
+			padding-inline: 20vw;
+		}
+		.formWrapper {
+			margin-inline: 20vw;
 		}
 	}
 </style>

@@ -6,16 +6,17 @@ interface Props {
 	visible: boolean;
 	hero: boolean;
 }
+let randomNum = Math.random() * 10000;
 ---
 
 <div class:list={["formWrapper", { hero }]}>
 	<h2 class:list={[{ visible }]}>Ready to start?</h2>
-	<form autocomplete="off" class:list={[{ hero }, "newsletterForm"]}>
+	<form class:list={[{ hero }, "newsletterForm"]}>
 		<input
 			placeholder="Enter email address"
 			type="email"
 			name="email"
-			id="email"
+			id=`email${randomNum}`
 		/>
 		<Button buttonType="submit" variant="primary mobile-menu">
 			Schedule a Demo
@@ -86,7 +87,7 @@ interface Props {
 		}
 	}
 
-	@media only screen and (min-width: 1440px) {
+	@media only screen and (min-width: 1366px) {
 		.formWrapper {
 			flex-direction: row;
 			margin-inline: 10vw;
@@ -120,15 +121,12 @@ interface Props {
 			justify-content: space-between;
 		}
 	}
+	@media only screen and (min-width: 2559px) {
+		form {
+			max-width: 700px;
+			input {
+				font-size: clamp(1rem, 1vw, 2rem);
+			}
+		}
+	}
 </style>
-
-<script>
-	// const form = document.querySelector<any>("form");
-	// //if (!form) return;
-	// const input = form.querySelector("input");
-	// //if (!input) return;
-	// form?.addEventListener("submit", (e: any) => {
-	// 	e.preventDefault();
-	// 	input.value = "";
-	// });
-</script>

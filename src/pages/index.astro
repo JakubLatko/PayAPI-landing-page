@@ -22,21 +22,6 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 		<div class="hero__content">
 			<h1>Start building with our APIs for absolutely free.</h1>
 			<NewsletterForm visible={false} hero={true} />
-			<!-- <div class="formWrapper hero">
-				<h2 class="visible">Ready to start?</h2>
-				<form autocomplete="off" class="hero">
-					<input
-						placeholder="Enter email address"
-						type="email"
-						name="email"
-						id="email"
-					/>
-					<Button buttonType="submit" variant="primary mobile-menu">
-						Schedule a Demo
-					</Button>
-				</form>
-			</div> -->
-
 			<div>
 				<p>Have any questions?</p>
 				<a href="/contact">Contact Us</a>
@@ -312,6 +297,40 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			}
 		}
 	}
+	@media only screen and (min-width: 599px) {
+		.partners {
+			&__text {
+				p {
+					font-size: clamp(0.875rem, 2.5vw, 2rem);
+					max-width: 60ch;
+					margin-inline: auto;
+				}
+			}
+		}
+		.majorPerks {
+			.majorPerk {
+				&__text {
+					p {
+						font-size: clamp(0.875rem, 2.75vw, 2rem);
+						max-width: 40ch;
+						margin-inline: auto;
+					}
+				}
+			}
+		}
+		.minorPerks {
+			.minorPerk {
+				&__text {
+					p {
+						font-size: clamp(0.875rem, 2.75vw, 2rem);
+						max-width: 40ch;
+						margin-inline: auto;
+					}
+				}
+			}
+		}
+	}
+
 	@media only screen and (min-width: 768px) {
 		body {
 			background-size: 120vw;
@@ -404,8 +423,36 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			}
 		}
 	}
+	@media only screen and (min-width: 1023px) {
+		.hero {
+			h1 {
+				max-width: none;
+				font-size: clamp(1rem, 9vw, 3.5rem);
+			}
+		}
 
-	@media only screen and (min-width: 1440px) {
+		.partners {
+			&__text {
+				h2 {
+					font-size: clamp(1rem, 8vw, 3rem);
+				}
+				p {
+					max-width: none;
+					font-size: clamp(1rem, 1.25vw, 2rem);
+				}
+			}
+		}
+		.minorPerks {
+			.minorPerk {
+				&__text {
+					p {
+						font-size: clamp(1rem, 1vw, 1.5rem);
+					}
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: 1366px) {
 		body {
 			background-size: 60vw;
 			background-position: 50vw -35vh;
@@ -452,11 +499,6 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 					margin-inline: 0;
 				}
 			}
-			&__imageWrapper {
-				img {
-					//width: 10%;
-				}
-			}
 		}
 		.majorPerks {
 			background-image: url(/assets/shared/desktop/bg-pattern-circle.svg);
@@ -475,7 +517,7 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 						font-size: clamp(2.5rem, 3.5vw, 3.5rem);
 					}
 					p {
-						font-size: clamp(0.875rem, 1vw, 1.5rem);
+						font-size: clamp(1rem, 1vw, 1.5rem);
 					}
 				}
 				&__image {
@@ -494,16 +536,82 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			.minorPerk {
 				&__text {
 					h3 {
-						font-size: clamp(1rem, 1.25vw, 1.5rem);
+						font-size: clamp(1.25rem, 1.25vw, 1.5rem);
 					}
 					p {
-						font-size: clamp(0.875rem, 1vw, 1.5rem);
+						font-size: clamp(1rem, 1vw, 1.5rem);
 						max-width: none;
 					}
 				}
 				&__image {
 				}
 			}
+		}
+	}
+	@media only screen and (min-width: 1920px) {
+		.partners {
+			&__imageWrapper {
+				gap: 7rem;
+				img {
+					scale: 1.4;
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: 2559px) {
+		.hero {
+			&__image {
+				img {
+					max-height: 900px;
+					margin-top: 5rem;
+				}
+			}
+			h1 {
+				font-size: clamp(4rem, 3vw, 6rem);
+			}
+		}
+		.partners {
+			&__text {
+				h2 {
+					font-size: clamp(3.5rem, 3vw, 6rem);
+				}
+				p {
+					font-size: clamp(1.5rem, 0.875vw, 3rem);
+				}
+			}
+		}
+		.majorPerks {
+			.majorPerk {
+				&__text {
+					h2 {
+						font-size: clamp(2rem, 2.5vw, 4rem);
+					}
+					p {
+						font-size: clamp(1.5rem, 1vw, 3rem);
+					}
+				}
+			}
+		}
+		.minorPerks {
+			.minorPerk {
+				&__text {
+					h3 {
+						font-size: clamp(1rem, 1.75vw, 2.5rem);
+					}
+					p {
+						font-size: clamp(1rem, 1vw, 2rem);
+						max-width: 40ch;
+					}
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: 3839px) {
+		.hero,
+		.partners,
+		.majorPerks,
+		.minorPerks {
+			padding-inline: 20vw;
 		}
 	}
 </style>
