@@ -8,14 +8,29 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 
 <header transition:persist>
 	<a href="/" class="logoLink">
-		<Image src={logo} alt={"PayAPI logo"} />
+		<Image
+			src={logo}
+			alt={"PayAPI logo"}
+			width={logo.width}
+			height={logo.height}
+		/>
 	</a>
 	<button class="burger">
-		<Image src={burger} alt={"Open the navigation menu"} />
+		<Image
+			src={burger}
+			alt={"Open the navigation menu"}
+			width={burger.width}
+			height={burger.height}
+		/>
 	</button>
 	<nav class="hidden">
 		<button class="close">
-			<Image src={Close} alt="Close menu" />
+			<Image
+				src={Close}
+				alt="Close menu"
+				width={Close.width}
+				height={Close.height}
+			/>
 		</button>
 		<ul>
 			<li><a href="/pricing">Pricing</a></li>
@@ -58,12 +73,16 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 		min-width: 10rem;
 		img {
 			object-fit: contain;
+			aspect-ratio: 35.5/10;
 		}
 	}
 
 	.burger {
 		background-color: transparent;
 		border: 0;
+		img {
+			aspect-ratio: 1;
+		}
 	}
 	ul {
 		list-style: none;
@@ -106,6 +125,7 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 
 		img {
 			margin-left: auto;
+			aspect-ratio: 1;
 		}
 	}
 

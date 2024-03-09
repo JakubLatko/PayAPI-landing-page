@@ -28,7 +28,12 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			</div>
 		</div>
 		<div class="hero__image">
-			<Image src={heroImage} alt="" />
+			<Image
+				src={heroImage}
+				alt=""
+				width={heroImage.width}
+				height={heroImage.height}
+			/>
 		</div>
 	</section>
 	<section class="partners">
@@ -47,12 +52,42 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			>
 		</div>
 		<div class="partners__imageWrapper">
-			<Image src={Tesla} alt={"Tesla's logo"} />
-			<Image src={Microsoft} alt={"Microsoft's logo"} />
-			<Image src={HP} alt={"HP's logo"} />
-			<Image src={Oracle} alt={"Oracle's logo"} />
-			<Image src={Google} alt={"Google's logo"} />
-			<Image src={nvidia} alt={"nvidia's logo"} />
+			<Image
+				src={Tesla}
+				alt={"Tesla's logo"}
+				width={Tesla.width}
+				height={Tesla.height}
+			/>
+			<Image
+				src={Microsoft}
+				alt={"Microsoft's logo"}
+				width={Microsoft.width}
+				height={Microsoft.height}
+			/>
+			<Image
+				src={HP}
+				alt={"HP's logo"}
+				width={HP.width}
+				height={HP.height}
+			/>
+			<Image
+				src={Oracle}
+				alt={"Oracle's logo"}
+				width={Oracle.width}
+				height={Oracle.height}
+			/>
+			<Image
+				src={Google}
+				alt={"Google's logo"}
+				width={Google.width}
+				height={Google.height}
+			/>
+			<Image
+				src={nvidia}
+				alt={"nvidia's logo"}
+				width={nvidia.width}
+				height={nvidia.height}
+			/>
 		</div>
 	</section>
 	<section class="majorPerks">
@@ -63,6 +98,8 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 					alt={""}
 					densities={[1.5, 2]}
 					quality={"high"}
+					width={majorPerk1.width}
+					height={majorPerk1.height}
 				/>
 			</div>
 			<div class="majorPerk__text">
@@ -76,7 +113,12 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 		</div>
 		<div class="majorPerk">
 			<div class="majorPerk__image">
-				<Image src={majorPerk2} alt={""} />
+				<Image
+					src={majorPerk2}
+					alt={""}
+					width={majorPerk2.width}
+					height={majorPerk2.height}
+				/>
 			</div>
 			<div class="majorPerk__text">
 				<h2>Simple UI & UX</h2>
@@ -90,7 +132,12 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 	<section class="minorPerks">
 		<div class="minorPerk">
 			<div class="minorPerk__image">
-				<Image src={minorPerk1} alt={""} />
+				<Image
+					src={minorPerk1}
+					alt={""}
+					width={minorPerk1.width}
+					height={minorPerk1.height}
+				/>
 			</div>
 			<div class="minorPerk__text">
 				<h3>Personal Finances</h3>
@@ -103,7 +150,12 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 		</div>
 		<div class="minorPerk">
 			<div class="minorPerk__image">
-				<Image src={minorPerk2} alt={""} />
+				<Image
+					src={minorPerk2}
+					alt={""}
+					width={minorPerk2.width}
+					height={minorPerk2.height}
+				/>
 			</div>
 			<div class="minorPerk__text">
 				<h3>Banking & Coverage</h3>
@@ -116,7 +168,12 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 		</div>
 		<div class="minorPerk">
 			<div class="minorPerk__image">
-				<Image src={minorPerk3} alt={""} />
+				<Image
+					src={minorPerk3}
+					alt={""}
+					width={minorPerk3.width}
+					height={minorPerk3.height}
+				/>
 			</div>
 			<div class="minorPerk__text">
 				<h3>Consumer Payments</h3>
@@ -181,11 +238,13 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			}
 		}
 		&__image {
+			min-height: 300px;
 			img {
 				width: fit-content;
 				max-width: 40vw;
 				height: fit-content;
 				object-fit: contain;
+				aspect-ratio: 5.2/10;
 			}
 		}
 	}
@@ -224,6 +283,24 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 			grid-template-rows: repeat(3, 1fr);
 			place-items: center;
 			gap: 3rem;
+			img:nth-of-type(1) {
+				aspect-ratio: 7.7/1;
+			}
+			img:nth-of-type(2) {
+				aspect-ratio: 4.77/1;
+			}
+			img:nth-of-type(3) {
+				aspect-ratio: 5.25/1;
+			}
+			img:nth-of-type(4) {
+				aspect-ratio: 7.82/1;
+			}
+			img:nth-of-type(5) {
+				aspect-ratio: 2.92/1;
+			}
+			img:nth-of-type(6) {
+				aspect-ratio: 5.34/1;
+			}
 		}
 	}
 
@@ -241,6 +318,12 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 					width: fit-content;
 					height: fit-content;
 					object-fit: contain;
+					&:first-of-type {
+						aspect-ratio: 15.6/10;
+					}
+					&:last-of-type {
+						aspect-ratio: 11.3/10;
+					}
 				}
 			}
 			&__text {
@@ -277,6 +360,7 @@ import minorPerk3 from "@assets/home/desktop/icon-consumer-payments.svg";
 					width: fit-content;
 					height: fit-content;
 					object-fit: contain;
+					aspect-ratio: 1;
 				}
 			}
 			&__text {

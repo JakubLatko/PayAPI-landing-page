@@ -56,12 +56,42 @@ import { Image } from "astro:assets";
 					</h2>
 				</div>
 				<div class="partners__imageWrapper">
-					<Image src={Tesla} alt={"Tesla's logo"} />
-					<Image src={Microsoft} alt={"Microsoft's logo"} />
-					<Image src={HP} alt={"HP's logo"} />
-					<Image src={Oracle} alt={"Oracle's logo"} />
-					<Image src={Google} alt={"Google's logo"} />
-					<Image src={nvidia} alt={"nvidia's logo"} />
+					<Image
+						src={Tesla}
+						alt={"Tesla's logo"}
+						width={Tesla.width}
+						height={Tesla.height}
+					/>
+					<Image
+						src={Microsoft}
+						alt={"Microsoft's logo"}
+						width={Microsoft.width}
+						height={Microsoft.height}
+					/>
+					<Image
+						src={HP}
+						alt={"HP's logo"}
+						width={HP.width}
+						height={HP.height}
+					/>
+					<Image
+						src={Oracle}
+						alt={"Oracle's logo"}
+						width={Oracle.width}
+						height={Oracle.height}
+					/>
+					<Image
+						src={Google}
+						alt={"Google's logo"}
+						width={Google.width}
+						height={Google.height}
+					/>
+					<Image
+						src={nvidia}
+						alt={"nvidia's logo"}
+						width={nvidia.width}
+						height={nvidia.height}
+					/>
 				</div>
 			</section>
 		</div>
@@ -212,6 +242,26 @@ import { Image } from "astro:assets";
 			grid-template-rows: repeat(3, 1fr);
 			place-items: center;
 			gap: 3rem;
+			img {
+				img:nth-of-type(1) {
+					aspect-ratio: 7.7/1;
+				}
+				img:nth-of-type(2) {
+					aspect-ratio: 4.77/1;
+				}
+				img:nth-of-type(3) {
+					aspect-ratio: 5.25/1;
+				}
+				img:nth-of-type(4) {
+					aspect-ratio: 7.82/1;
+				}
+				img:nth-of-type(5) {
+					aspect-ratio: 2.92/1;
+				}
+				img:nth-of-type(6) {
+					aspect-ratio: 5.34/1;
+				}
+			}
 		}
 	}
 	@media only screen and (min-width: 768px) {
@@ -290,6 +340,43 @@ import { Image } from "astro:assets";
 					font-size: clamp(0.875rem, 1vw, 1.5rem);
 					max-width: 45ch;
 					margin-inline: 0;
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: 1920px) {
+		.partners {
+			h2 {
+				font-size: clamp(1rem, 2vw, 2.5rem);
+				margin-left: 3rem;
+			}
+		}
+	}
+	@media only screen and (min-width: 2559px) {
+		main {
+			margin-top: 5rem;
+		}
+		.inputDiv {
+			label,
+			input {
+				font-size: clamp(1rem, 2vw, 1.5rem);
+			}
+		}
+		.checkboxDiv {
+			label {
+				font-size: clamp(1rem, 2vw, 1.5rem);
+			}
+		}
+		.partners {
+			margin-left: 5rem;
+			h2 {
+				font-size: clamp(1rem, 2vw, 3rem);
+			}
+			padding-top: 0;
+			&__imageWrapper {
+				gap: 5rem;
+				img {
+					scale: 1.5;
 				}
 			}
 		}

@@ -161,7 +161,20 @@ import Layout from "src/layouts/Layout.astro";
 			}
 		}
 	}
-
+	@media only screen and (min-width: 599px) {
+		h1 {
+			font-size: clamp(1rem, 7vw, 3.5rem);
+		}
+		.text {
+			h3 {
+				font-size: clamp(1rem, 8vw, 3.5rem);
+			}
+			p {
+				font-size: clamp(0.75rem, 4vw, 1.5rem);
+				max-width: 35ch;
+			}
+		}
+	}
 	@media only screen and (min-width: 768px) {
 		body {
 			background-size: 80vw;
@@ -237,5 +250,7 @@ import Layout from "src/layouts/Layout.astro";
 				font-size: clamp(0.875rem, 1.1vw, 1.25rem);
 			}
 		}
+	}
+	@media only screen and (min-width: 2559px) {
 	}
 </style>

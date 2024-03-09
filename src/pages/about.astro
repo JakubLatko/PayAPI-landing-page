@@ -42,16 +42,25 @@ import peopleMobile from "@assets/about/mobile/image-team-members.jpg";
 			class="mobileOnly"
 			src={peopleMobile}
 			alt={"People sitting at the table and discussing"}
+			width={peopleMobile.width}
+			height={peopleMobile.width}
+			quality={"max"}
 		/>
 		<Image
 			class="tabletOnly"
 			src={peopleTablet}
 			alt={"People sitting at the table and discussing"}
+			width={peopleTablet.width}
+			height={peopleTablet.width}
+			quality={"max"}
 		/>
 		<Image
 			class="desktopOnly"
 			src={peopleDesktop}
 			alt={"People sitting at the table and discussing"}
+			width={peopleDesktop.width}
+			height={peopleDesktop.width}
+			quality={"max"}
 		/>
 		<section class="table">
 			<div class="data">
@@ -149,6 +158,7 @@ import peopleMobile from "@assets/about/mobile/image-team-members.jpg";
 	}
 	.mobileOnly {
 		display: block;
+		aspect-ratio: 1.25/1;
 	}
 	.desktopOnly,
 	.tabletOnly {
@@ -182,6 +192,17 @@ import peopleMobile from "@assets/about/mobile/image-team-members.jpg";
 			font-size: clamp(3.75rem, 16vw, 4.5rem);
 		}
 	}
+	@media only screen and (min-width: 599px) {
+		.textWrapper {
+			h2 {
+				font-size: clamp(1rem, 6vw, 3.5rem);
+			}
+			p {
+				font-size: clamp(1rem, 2vw, 2.5rem);
+			}
+		}
+	}
+
 	@media only screen and (min-width: 768px) {
 		body {
 			background-size: 80vw;
@@ -221,6 +242,7 @@ import peopleMobile from "@assets/about/mobile/image-team-members.jpg";
 		}
 		.tabletOnly {
 			display: block;
+			aspect-ratio: 2.88/1;
 		}
 		.desktopOnly,
 		.mobileOnly {
@@ -272,10 +294,35 @@ import peopleMobile from "@assets/about/mobile/image-team-members.jpg";
 		}
 		.desktopOnly {
 			display: block;
+			aspect-ratio: 2.88/1;
 		}
 		.tabletOnly,
 		.mobileOnly {
 			display: none;
+		}
+	}
+	@media only screen and (min-width: 1920px) {
+		.textSection {
+			margin-block: 2rem;
+			gap: 5rem;
+		}
+		h1 {
+			margin-top: 3rem;
+		}
+	}
+	@media only screen and (min-width: 2559px) {
+		h1 {
+			font-size: clamp(3rem, 4vw, 5rem);
+			margin-top: 3rem;
+		}
+		.textSection {
+			margin-block: 2rem;
+			gap: 7rem;
+		}
+		.textWrapper {
+			h2 {
+				font-size: clamp(2rem, 2vw, 3rem);
+			}
 		}
 	}
 </style>

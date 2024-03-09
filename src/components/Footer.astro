@@ -9,7 +9,12 @@ import NewsletterForm from "./NewsletterForm.astro";
 	<NewsletterForm visible={true} hero={false} />
 	<footer>
 		<a class="logo" href="/">
-			<Image src={logo} alt={"PayAPI's logo"} />
+			<Image
+				src={logo}
+				alt={"PayAPI's logo"}
+				width={logo.width}
+				height={logo.width}
+			/>
 		</a>
 		<nav>
 			<ul>
@@ -19,7 +24,9 @@ import NewsletterForm from "./NewsletterForm.astro";
 			</ul>
 		</nav>
 		<div class="socialMedia">
-			<a href="https://www.facebook.com/"
+			<a
+				href="https://www.facebook.com/"
+				aria-label="Link to our Facebook"
 				><svg
 					class="socialMediaIcon"
 					width="24"
@@ -30,7 +37,9 @@ import NewsletterForm from "./NewsletterForm.astro";
 						fill="#FBFCFE"
 						fill-rule="nonzero"></path></svg
 				></a
-			><a href="https://www.instagram.com/"
+			><a
+				href="https://www.instagram.com/"
+				aria-label="Link to our Instagram"
 				><svg
 					class="socialMediaIcon"
 					width="24"
@@ -41,7 +50,9 @@ import NewsletterForm from "./NewsletterForm.astro";
 						fill="#FBFCFE"
 						fill-rule="nonzero"></path></svg
 				></a
-			><a href="https://www.linkedin.com/"
+			><a
+				href="https://www.linkedin.com/"
+				aria-label="Link to our LinkedIn"
 				><svg
 					class="socialMediaIcon"
 					width="24"
@@ -115,6 +126,29 @@ import NewsletterForm from "./NewsletterForm.astro";
 			}
 		}
 	}
+	@media only screen and (min-width: 599px) {
+		footer {
+			gap: 3rem;
+		}
+		.logo {
+			img {
+				scale: 1.35;
+			}
+		}
+		ul {
+			li {
+				a {
+					font-size: clamp(1rem, 4vw, 2rem);
+				}
+			}
+		}
+		.socialMedia {
+			gap: 3rem;
+			a {
+				scale: 1.45;
+			}
+		}
+	}
 
 	@media only screen and (min-width: 768px) {
 		footer {
@@ -132,6 +166,24 @@ import NewsletterForm from "./NewsletterForm.astro";
 		.socialMedia {
 			margin-left: auto;
 		}
+		.logo {
+			img {
+				scale: 1;
+			}
+		}
+		ul {
+			li {
+				a {
+					font-size: clamp(1rem, 4vw, 2rem);
+				}
+			}
+		}
+		.socialMedia {
+			gap: 3rem;
+			a {
+				scale: 1;
+			}
+		}
 	}
 	@media only screen and (min-width: 1366px) {
 		footer {
@@ -148,6 +200,16 @@ import NewsletterForm from "./NewsletterForm.astro";
 	@media only screen and (min-width: 2559px) {
 		footer {
 			padding-block: 4rem;
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 15px;
+				bottom: -15px;
+				left: 0;
+				background-color: var(--primary-300);
+			}
 		}
 		.logo {
 			transform: scale(2);
