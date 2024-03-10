@@ -1,0 +1,42 @@
+---
+import Button from "src/components/Button.astro";
+import "../sass/index.scss";
+import SuccessLayout from "src/layouts/SuccessLayout.astro";
+---
+
+<SuccessLayout title="PayAPI | Success">
+	<main>
+		<div>
+			<h1>Your message was succesfully sent!</h1>
+			<a href="/">
+				<Button buttonType="button" variant="primary">
+					Back to the our site
+				</Button>
+			</a>
+		</div>
+	</main>
+</SuccessLayout>
+
+<style>
+	div {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: var(--primary-100);
+		padding: 2rem;
+		border-radius: 15px;
+	}
+	h1 {
+		color: var(--primary-50);
+	}
+	@media only screen and (max-width: 800px) {
+		main,
+		div {
+			width: 90vw;
+		}
+	}
+</style>

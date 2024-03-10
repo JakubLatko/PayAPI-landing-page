@@ -53,6 +53,8 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 		justify-content: space-between;
 	}
 	nav {
+		transition: transform 500ms ease-in-out;
+		transform: translateX(0%);
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -108,12 +110,12 @@ import Close from "../../public/assets/shared/mobile/close.svg";
 		}
 	}
 	.hidden {
-		display: none;
+		transition: transform 500ms ease-in-out;
+		transform: translateX(100%);
 	}
 	.close {
 		border: 0;
 		padding-block: 1rem;
-
 		margin-top: 2rem;
 		// //padding-inline: 0;
 		// padding-inline: 1.5rem;

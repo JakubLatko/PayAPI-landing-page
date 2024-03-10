@@ -14,7 +14,18 @@ import { Image } from "astro:assets";
 	<main>
 		<h1>Submit a help request and we’ll get in touch shortly.</h1>
 		<div class="everythingWrapper">
-			<form data-netlify="true" name="mainForm" method="POST">
+			<form
+				data-netlify="true"
+				name="mainForm"
+				method="POST"
+				action="/success/"
+				netlify-honeypot="bot-field">
+				<input
+					name="bot-field"
+					type="hidden"
+					style="display:none;"
+					data-netlify=""
+				/>
 				<div class="inputDiv">
 					<label for="name">Name</label>
 					<input type="text" name="name" id="name" required />
