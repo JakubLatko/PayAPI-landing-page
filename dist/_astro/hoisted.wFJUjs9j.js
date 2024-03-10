@@ -1,0 +1,1 @@
+import"./ViewTransitions.astro_astro_type_script_index_0_lang.l-JsOPk0.js";function r(){document.querySelectorAll(".newsletterForm").forEach(e=>{e.addEventListener("submit",n=>{const t=e.querySelector("input");n.preventDefault(),t&&(t.value="")})})}document.addEventListener("astro:page-load",r);
